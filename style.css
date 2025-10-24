@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Jersey+10');
+html {
+  font-size: 25px;
+}
+body {
+  background-color: #000014;
+  color: #ffffff;
+  font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', cursive;
+  margin: 0; /* remove default page margin so fixed header/footer align flush */
+}
+
+/* Header */
+.heading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000014; /* solid background */
+  z-index: 1000; /* ensure header sits above page content */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px; /* adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000014; /* solid background */
+  z-index: 1000; /* ensure footer sits above page content */
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.5);
+}
+
+a:link {
+  color: #66c0ff;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: #e875ff;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #97d3fc;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* If your page content uses a wrapper, give it padding equal to header/footer heights
+   so content isn't hidden under them. If you prefer the content to be covered (hidden)
+   when it scrolls under header/footer, remove these paddings. */
+.main, .body {
+  text-align: center;
+  padding-top: 60px;   /* equal to .heading height */
+  padding-bottom: 50px; /* equal to .footer height */
+}
