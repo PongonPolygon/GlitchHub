@@ -60,3 +60,8 @@ a:hover {
   padding-top: 60px;   /* equal to .heading height */
   padding-bottom: 50px; /* equal to .footer height */
 }
+.mintext {
+  text-align: center;
+  font-size: 15px;
+  background-color: transparent;
+  color: #777777;
