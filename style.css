@@ -26,7 +26,7 @@ body {
 
 /* Footer */
 .footer {
-  font-size: 15px;
+  font-size: 20px;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -53,12 +53,8 @@ a:visited {
 a:hover {
   color: #97d3fc;
   background-color: transparent;
-  text-decoration: underline;
+  text-decoration: ;
 }
-
-/* If your page content uses a wrapper, give it padding equal to header/footer heights
-   so content isn't hidden under them. If you prefer the content to be covered (hidden)
-   when it scrolls under header/footer, remove these paddings. */
 .main, .body {
   text-align: center;
   padding-top: 60px;   /* equal to .heading height */
