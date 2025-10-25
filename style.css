@@ -72,8 +72,9 @@ a:hover {
   color: #777777;
 }
 .section-divider {
-  border: none;
-  border-top: 2px solid #00FF9C; /* subtle neon line */
-  width: 80%;
-  margin: 30px auto;
+  border: none;                 /* remove the browser's default 3D border */
+  border-top: 2px solid #00FF9C; /* your chosen color (neon cyan, e.g.) */
+  width: 60%;                   /* controls how long the line is */
+  margin: 20px auto;            /* centers it horizontally */
+  opacity: 0.7;                 /* optional: makes it blend nicely */
 }
