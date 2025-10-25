@@ -71,10 +71,3 @@ a:hover {
   background-color: transparent;
   color: #777777;
 }
-.section-divider {
-  border: none;
-  border-top: 2px solid #ffffff;
-  width: 80%;
-  margin: 20px auto;
-  opacity: 0.7;
-}
