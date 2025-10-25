@@ -72,7 +72,7 @@ a:hover {
   color: #777777;
 }
 .clean-line {
-  width: 50%;
+  width: 75%;
   height: 1px;
   margin: 25px auto;
   background: linear-gradient(90deg, transparent, #888, transparent);
