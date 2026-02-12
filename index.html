@@ -111,6 +111,15 @@
 				margin-top: 0px;
 				padding: 0;
 			}
+            .search {
+                font-family: "Press Start 2P";
+                color: #ffffff;
+                background-color: #000024;
+                height: 25px;
+                border-style: solid;
+                border-color: #676780;
+                border-radius: 7px;
+            }
 		</style>
 	</head>
 
@@ -143,7 +152,8 @@
 				<span id="recommendButton" class="button" onclick="toggleSection('recommend')">Forms</span>
 			</h2>
 
-			<div class="inner">
+			<div class="inner" id="inner">
+                <input type="text" id="search" placeholder="Search..." class="search">
 				<div class="clean-line" id="linestart" style="display: none"></div>
 
 				<!-- Games Section -->
@@ -797,8 +807,6 @@
 						<br />
 						<a href="https://pongonpolygon.github.io/glitchhub_games/CandyBarAdventure/CandyBarAdventure">Firey's Candy Bar Adventure</a>
 						<br />
-						<a href="https://pongonpolygon.github.io/glitchhub_games/PocketEmo/PocketEmo">Firey's Candy Bar Adventure</a>
-						<br />
 						<a href="https://pongonpolygon.github.io/glitchhub_games/PocketEmo/PocketEmo">Pocket Emo</a>
 						<br />
 						<a href="https://guitarflash.com">Guitar Flash</a>
@@ -1205,12 +1213,10 @@
 			const descriptions = [
 				"A gamer's hub for all things internet.",
 				"Probably too addicting to leave lol",
-				"Imagine if this logo was white and orange?",
 				"I bet you're in class right now 😭🙏",
 				"So, what are you clicking first?",
 				"You can recommend your own games y'know!",
 				"Why is Slope 2 so damn addicting???",
-				"Until I figure out search bars, Ctrl+F",
 				count + " games, and " + count1 + " movies and shows!",
 				"2-Player games can get you caught in class!",
 				"You lost the game btw, sorry not sorry.",
@@ -1221,53 +1227,55 @@
 				"There are " + total + " total links on this website.",
 				"Sweat and tears DID NOT go into this.",
 				"Not on google search results... yet!",
-				"This message is random every refresh."
+				"This message is random every refresh.",
+				"Did you refresh just to see a new message?",
+				"A hub for games and stuff, and streaming."
 			];
 
 			document.getElementById("description").textContent =
 				descriptions[Math.floor(Math.random() * descriptions.length)];
 		</script>
-    <!-- get ?page= for stuff -->
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      const page = params.get("page");
-      let startpage = "";
-      
-      if (page == "play") {
-        startpage = "play";
-      } else if (page == "watch") {
-        startpage = "watch";
-      } else if (page == "forms") {
-        startpage = "forms";
-      } else {
-        startpage = "play";
-      }
-    </script>
+        <!-- get ?page= for stuff -->
+        <script>
+          const params = new URLSearchParams(window.location.search);
+          const page = params.get("page");
+          let startpage = "";
+
+          if (page == "play") {
+            startpage = "play";
+          } else if (page == "watch") {
+            startpage = "watch";
+          } else if (page == "forms") {
+            startpage = "forms";
+          } else {
+            startpage = "play";
+          }
+        </script>
     
-		<script>
-			function toggleSection(section) {
-				document.getElementById("loading-section").classList.remove("active");
-				document.getElementById("games-section").classList.remove("active");
-				document.getElementById("videos-section").classList.remove("active");
-				document.getElementById("recommend-section").classList.remove("active");
-				document.getElementById("gamesButton").classList.remove("active-button");
-				document.getElementById("videosButton").classList.remove("active-button");
-				document.getElementById("recommendButton").classList.remove("active-button");
-				if (section === "games") {
-					document.getElementById("games-section").classList.add("active");
-					document.getElementById("gamesButton").classList.add("active-button");
-					document.title = "GlitchHub | Play";
-				} else if (section === "videos") {
-					document.getElementById("videos-section").classList.add("active");
-					document.getElementById("videosButton").classList.add("active-button");
-					document.title = "GlitchHub | Watch";
-				} else if (section === "recommend") {
-					document.getElementById("recommend-section").classList.add("active");
-					document.getElementById("recommendButton").classList.add("active-button");
-					document.title = "GlitchHub | Forms";
-				}
-			}
-			document.addEventListener("DOMContentLoaded", function () {
+        <script>
+            function toggleSection(section) {
+                document.getElementById("loading-section").classList.remove("active");
+                document.getElementById("games-section").classList.remove("active");
+                document.getElementById("videos-section").classList.remove("active");
+                document.getElementById("recommend-section").classList.remove("active");
+                document.getElementById("gamesButton").classList.remove("active-button");
+                document.getElementById("videosButton").classList.remove("active-button");
+                document.getElementById("recommendButton").classList.remove("active-button");
+                if (section === "games") {
+                    document.getElementById("games-section").classList.add("active");
+                    document.getElementById("gamesButton").classList.add("active-button");
+                    document.title = "GlitchHub | Play";
+                } else if (section === "videos") {
+                    document.getElementById("videos-section").classList.add("active");
+                    document.getElementById("videosButton").classList.add("active-button");
+                    document.title = "GlitchHub | Watch";
+                } else if (section === "recommend") {
+                    document.getElementById("recommend-section").classList.add("active");
+                    document.getElementById("recommendButton").classList.add("active-button");
+                    document.title = "GlitchHub | Forms";
+                }
+            }
+            document.addEventListener("DOMContentLoaded", function () {
         if (startpage == "play") {
           toggleSection("games");
         } else if (startpage == "watch") {
@@ -1276,9 +1284,59 @@
           toggleSection("recommend");
         }
         document.getElementById("title").style.display = "flex";
-				document.getElementById("button-body").style.display = "block";
-				document.getElementById("linestart").style.display = "block";
-			});
-		</script>
+                document.getElementById("button-body").style.display = "block";
+                document.getElementById("linestart").style.display = "block";
+            });
+        </script>
+        
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const searchInput = document.getElementById("search");
+
+          const searchableContainers = [
+            document.getElementById("games"),
+            document.getElementById("vids")
+          ];
+
+          // Normalizes text for flexible searching
+          function normalize(str) {
+            return str
+              .toLowerCase()
+              .replace(/[-':]/g, "")   // remove hyphens and apostrophes
+              .trim();
+          }
+
+          function filterLinks() {
+            const query = normalize(searchInput.value);
+
+            searchableContainers.forEach(container => {
+              if (!container) return;
+
+              const links = container.getElementsByTagName("a");
+
+              for (let link of links) {
+                const text = normalize(link.textContent);
+                const href = normalize(link.getAttribute("href"));
+
+                if (text.includes(query) || href.includes(query)) {
+                  link.style.display = "";
+                  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+                    link.nextElementSibling.style.display = "";
+                  }
+                } else {
+                  link.style.display = "none";
+                  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+                    link.nextElementSibling.style.display = "none";
+                  }
+                }
+              }
+            });
+          }
+
+          searchInput.addEventListener("input", filterLinks);
+        });
+        </script>
+
+
 	</body>
 </html>
