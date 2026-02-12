@@ -1195,7 +1195,23 @@
 			document.getElementById("description").textContent =
 				descriptions[Math.floor(Math.random() * descriptions.length)];
 		</script>
-
+    <!-- get ?page= for stuff -->
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const page = params.get("page");
+      let startpage = "";
+      
+      if (page == "play") {
+        startpage = "play";
+      } else if (page == "watch") {
+        startpage = "watch";
+      } else if (page == "forms") {
+        startpage = "forms";
+      } else {
+        startpage = "play";
+      }
+    </script>
+    
 		<script>
 			function toggleSection(section) {
 				document.getElementById("loading-section").classList.remove("active");
@@ -1220,7 +1236,13 @@
 				}
 			}
 			document.addEventListener("DOMContentLoaded", function () {
-				toggleSection("games");
+        if (startpage == "play") {
+          toggleSection("games");
+        } else if (startpage == "watch") {
+          toggleSection("videos");
+        } else if (startpage == "forms") {
+          toggleSection("recommend");
+        }
         document.getElementById("title").style.display = "flex";
 				document.getElementById("button-body").style.display = "block";
 				document.getElementById("linestart").style.display = "block";
