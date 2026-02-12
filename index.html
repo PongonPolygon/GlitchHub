@@ -111,15 +111,15 @@
 				margin-top: 0px;
 				padding: 0;
 			}
-            .search {
-                font-family: "Press Start 2P";
-                color: #ffffff;
-                background-color: #000024;
-                height: 25px;
-                border-style: solid;
-                border-color: #676780;
-                border-radius: 7px;
-            }
+      .search {
+        font-family: "Press Start 2P";
+        color: #ffffff;
+        background-color: #000024;
+        height: 25px;
+        border-style: solid;
+        border-color: #676780;
+        border-radius: 7px;
+      }
 		</style>
 	</head>
 
@@ -149,12 +149,12 @@
 			<h2 id="button-body" style="display: none">
 				<span id="gamesButton" class="button" onclick="toggleSection('games')">Play</span>
 				<span id="videosButton" class="button" onclick="toggleSection('videos')">Watch</span>
-				<span id="recommendButton" class="button" onclick="toggleSection('recommend')">Forms</span>
+				<span id="recommendButton" class="button" onclick="toggleSection('recommend')">Help</span>
 			</h2>
 
 			<div class="inner" id="inner">
 				<div class="clean-line" id="linestart" style="display: none"></div>
-    <input type="text" id="search" placeholder="Search..." class="search">
+        <div style="margin-top: -10px;"><input type="text" id="search" placeholder="Search..." class="search" style="display: none;"></div>
 
 				<!-- Games Section -->
 				<div id="games-section" class="main section" style="margin-top: -45px">
@@ -1108,7 +1108,7 @@
 				</div>
 
 				<!-- recommendations iframe -->
-				<div id="recommend-section" class="main section" style="margin-top: -45px">
+				<div id="recommend-section" class="main section" style="margin-top: -75px">
 					<div style="margin-top: -16px" class="mintext">
 						<p>Thanks for helping me expand GlitcHub! Also, please don't be a troll.</p>
 					</div>
@@ -1264,15 +1264,18 @@
                 if (section === "games") {
                     document.getElementById("games-section").classList.add("active");
                     document.getElementById("gamesButton").classList.add("active-button");
+                  document.getElementById("search").style.display = "inline";
                     document.title = "GlitchHub | Play";
                 } else if (section === "videos") {
                     document.getElementById("videos-section").classList.add("active");
                     document.getElementById("videosButton").classList.add("active-button");
+                  document.getElementById("search").style.display = "inline";
                     document.title = "GlitchHub | Watch";
                 } else if (section === "recommend") {
                     document.getElementById("recommend-section").classList.add("active");
                     document.getElementById("recommendButton").classList.add("active-button");
-                    document.title = "GlitchHub | Forms";
+                  document.getElementById("search").style.display = "none";
+                    document.title = "GlitchHub | Help";
                 }
             }
             document.addEventListener("DOMContentLoaded", function () {
@@ -1280,12 +1283,13 @@
           toggleSection("games");
         } else if (startpage == "watch") {
           toggleSection("videos");
-        } else if (startpage == "forms") {
+        } else if (startpage == "help") {
           toggleSection("recommend");
         }
         document.getElementById("title").style.display = "flex";
                 document.getElementById("button-body").style.display = "block";
                 document.getElementById("linestart").style.display = "block";
+                document.getElementById("search").style.display = "inline";
             });
         </script>
         
