@@ -1433,8 +1433,33 @@
 
 		<!-- watch and play count -->
 		<script>
-			document.getElementById("gamecount").textContent = "Games (" + document.getElementById("games").getElementsByTagName("a").length + ")";
-			document.getElementById("vidcount").textContent = "Movies & Shows (" + document.getElementById("vids").getElementsByTagName("a").length + ")";
+			let games = 0
+			let movies = 0
+			const game = document.getElementById("games").getElementsByTagName("a");
+			const vids = document.getElementById("vids").getElementsByTagName("a");
+			
+			for (let link of game) {
+				if (link.classList.contains("18")) {
+					if (enabled == "false") {
+						games += 1;
+					}
+				} else {
+					games += 1;
+				}
+			}
+			
+			for (let link of vids) {
+				if (link.classList.contains("18")) {
+					if (enabled == "false") {
+						movies += 1;
+					}
+				} else {
+					movies += 1;
+				}
+			}
+			
+			document.getElementById("gamecount").textContent = "Games (" + games + ")";
+			document.getElementById("vidcount").textContent = "Movies & Shows (" + movies + ")";
 		</script>
 
 		<!-- description -->
