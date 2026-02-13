@@ -111,15 +111,20 @@
 				margin-top: 0px;
 				padding: 0;
 			}
-      .search {
-        font-family: "Press Start 2P";
-        color: #ffffff;
-        background-color: #000024;
-        height: 25px;
-        border-style: solid;
-        border-color: #676780;
-        border-radius: 7px;
-      }
+			.search {
+				font-family: "Press Start 2P";
+				color: #ffffff;
+				background-color: #000024;
+				height: 25px;
+				border-style: solid;
+				border-color: #676780;
+				border-radius: 7px;
+			}
+			.checkbox {
+				font-size: 12px;
+				color: #777777;
+				accent-color: #505095;
+			}
 		</style>
 	</head>
 
@@ -1173,13 +1178,215 @@
 					<div class="clean-line"></div>
 					<span>
 						<a href="https://pongonpolygon.github.io">Home Page</a>
+						<a href="privacypolicy.html">Privacy Policy</a>
 						<a href="https://github.com/PongonPolygon/pongonpolygon.github.io/tree/main">Source Code</a>
 					</span>
+					<div class="checkbox">
+						<input type="checkbox" id="18check" name="18" checked>
+						<value for="18check">Hide 18+</value>
+					</div>
 				</div>
 			</div>
 		</div>
+		
+		<!-- 18+ cookies -->
+		<script>
+			let enabled = "true";
+			
+			function removeBr(el) {
+				if (el && el.nextSibling) {
+				  let next = el.nextSibling;
+				  while (next && next.nodeType === Node.TEXT_NODE) {
+					next = next.nextSibling;
+				  }
 
-		<!-- ts what i mean the buttons are a ✨ PAIN ✨ -->
+				  if (next && next.tagName === "BR") {
+					next.remove();
+				  }
+				}
+			}
+			
+			function addBr(el) {
+				if (el) {
+				  const br = document.createElement("br");
+				  el.insertAdjacentElement("afterend", br);
+				}
+			}
+			
+			function setCookie(name, value, days) {
+				const expires = new Date(Date.now() + days * 864e5).toUTCString();
+				document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+			}
+
+			function getCookie(name) {
+				return document.cookie
+					.split("; ")
+					.find(row => row.startsWith(name + "="))
+					?.split("=")[1];
+			}
+
+			if (!getCookie("18Filter")) {
+				setCookie("18Filter", "true", 3153600000);
+				enabled = getCookie("18Filter");
+			} else {
+				enabled = getCookie("18Filter");
+			}
+			
+			if (enabled != "true") {
+				document.getElementById("18check").checked = false;
+			}
+		</script>
+		
+		<!-- checking when 18+ filter is checked or unchecked -->
+		<script>
+			const searchableContainers = [
+				document.getElementById("games"),
+				document.getElementById("vids")
+			];
+			
+			const searchInput = document.getElementById("search");
+			
+			function normalize(str) {
+				return str
+				  .toLowerCase()
+				  .replace(/[-':.,]/g, "")
+				  .trim();
+			  }
+
+			  function filterLinks() {
+			  let movies = 0
+			  let games = 0
+			  
+				const query = normalize(searchInput.value);
+
+				searchableContainers.forEach(container => {
+				if (!container) return;
+
+				const links = container.getElementsByTagName("a");
+
+				for (let link of links) {
+					if (link.classList.contains("18")) {
+						if (enabled == "false") {
+							const text = normalize(link.textContent);
+							const href = normalize(link.getAttribute("href"));
+
+							if (text.includes(query) || href.includes(query)) {
+							  link.style.display = "";
+							  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+								link.nextElementSibling.style.display = "";
+							  }
+							  if (container == document.getElementById("games")) {
+									games += 1;
+								} else if (container == document.getElementById("vids")) {
+									movies += 1;
+								}
+							} else {
+							  link.style.display = "none";
+							  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+								link.nextElementSibling.style.display = "none";
+							  }
+							}
+						}
+					} else {
+						const text = normalize(link.textContent);
+						const href = normalize(link.getAttribute("href"));
+
+						if (text.includes(query) || href.includes(query)) {
+						  link.style.display = "";
+						  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+							link.nextElementSibling.style.display = "";
+						  }
+						  if (container == document.getElementById("games")) {
+									games += 1;
+								} else if (container == document.getElementById("vids")) {
+									movies += 1;
+								}
+						} else {
+						  link.style.display = "none";
+						  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+							link.nextElementSibling.style.display = "none";
+						  }
+						}
+					}
+				  }
+				});
+				
+				document.getElementById("gamecount").textContent = "Games (" + games + ")";
+			document.getElementById("vidcount").textContent = "Movies & Shows (" + movies + ")";
+			  }
+			
+			searchableContainers.forEach(container => {
+				if (!container) return;
+
+				const links = container.getElementsByTagName("a");
+
+				for (let link of links) {
+					if (link.classList.contains("18")) {
+						link.style.display = "none";
+						removeBr(link);
+					}
+				}
+			});
+			
+			if (!document.getElementById("18check").checked) {
+				searchableContainers.forEach(container => {
+					if (!container) return;
+
+					const links = container.getElementsByTagName("a");
+
+					for (let link of links) {
+						if (link.classList.contains("18")) {
+							link.style.cssText = "";
+							addBr(link);
+						}
+					}
+				});
+			}
+		
+			document.getElementById("18check").addEventListener("change", function() {
+				if (this.checked) {
+					console.log("checked")
+					setCookie("18Filter", "true", 3153600000);
+					
+					enabled = "true";
+					
+					searchableContainers.forEach(container => {
+						if (!container) return;
+
+						const links = container.getElementsByTagName("a");
+
+						for (let link of links) {
+							if (link.classList.contains("18")) {
+								link.style.display = "none";
+								removeBr(link);
+							}
+						}
+					});
+				} else {
+					console.log("unchecked")
+					setCookie("18Filter", "false", 3153600000);
+					
+					enabled = "false";
+					
+					searchableContainers.forEach(container => {
+						if (!container) return;
+
+						const links = container.getElementsByTagName("a");
+
+						for (let link of links) {
+							if (link.classList.contains("18")) {
+								link.style.cssText = "";
+								addBr(link);
+							}
+						}
+					});
+				}
+				
+				filterLinks();
+			});
+		</script>
+		
+		<!-- add icons to each URL for styling -->
 		<script>
 			document.querySelectorAll("a").forEach((link) => {
 				if (link.querySelector("img")) return;
@@ -1224,23 +1431,14 @@
 			window.addEventListener("scroll", handleScroll);
 		</script>
 
-		<!-- games count -->
+		<!-- watch and play count -->
 		<script>
-			const parent = document.getElementById("games");
-			const count = parent.children.length / 2;
-			document.getElementById("gamecount").textContent = "Games (" + count + ")";
-		</script>
-
-		<!-- videos count -->
-		<script>
-			const parent1 = document.getElementById("vids");
-			const count1 = parent1.children.length / 2;
-			document.getElementById("vidcount").textContent = "Movies & Shows (" + count1 + ")";
+			document.getElementById("gamecount").textContent = "Games (" + document.getElementById("games").getElementsByTagName("a").length + ")";
+			document.getElementById("vidcount").textContent = "Movies & Shows (" + document.getElementById("vids").getElementsByTagName("a").length + ")";
 		</script>
 
 		<!-- description -->
 		<script>
-			const total = count + count1;
 			const descriptions = [
 				"A gamer's hub for all things internet.",
 				"Probably too addicting to leave lol",
@@ -1248,14 +1446,14 @@
 				"So, what are you clicking first?",
 				"You can recommend your own games y'know!",
 				"Why is Slope 2 so damn addicting???",
-				count + " games, and " + count1 + " movies and shows!",
+				"Over 300 links to games, movies, and shows!",
 				"2-Player games can get you caught in class!",
 				"You lost the game btw, sorry not sorry.",
 				"I made this myself, and I don't regret it.",
 				"You know a site is good when you use it a lot.",
 				"Based on Tyler's Game Hub, now it's deleted.",
 				"[insert cool description here]",
-				"There are " + total + " total links on this website.",
+				"Most of these links are from pinterest lol",
 				"Sweat and tears DID NOT go into this.",
 				"Not on google search results... yet!",
 				"This message is random every refresh.",
@@ -1266,7 +1464,8 @@
 			document.getElementById("description").textContent =
 				descriptions[Math.floor(Math.random() * descriptions.length)];
 		</script>
-        <!-- get ?page= for page and 18+ -->
+		
+        <!-- get ?page= for page-->
         <script>
           const params = new URLSearchParams(window.location.search);
           const page = params.get("page");
@@ -1282,7 +1481,8 @@
             startpage = "play";
           }
         </script>
-    
+		
+		<!-- visibility for each page on the site -->
         <script>
             function toggleSection(section) {
                 document.getElementById("loading-section").classList.remove("active");
@@ -1324,52 +1524,88 @@
             });
         </script>
         
+		<!-- search bar -->
         <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const searchInput = document.getElementById("search");
+			document.addEventListener("DOMContentLoaded", () => {
+			  const searchInput = document.getElementById("search");
 
-          const searchableContainers = [
-            document.getElementById("games"),
-            document.getElementById("vids")
-          ];
+			  const searchableContainers = [
+				document.getElementById("games"),
+				document.getElementById("vids")
+			  ];
 
-          // Normalizes text for flexible searching
-          function normalize(str) {
-            return str
-              .toLowerCase()
-              .replace(/[-':.]/g, "")   // remove hyphens and apostrophes
-              .trim();
-          }
+			  function normalize(str) {
+				return str
+				  .toLowerCase()
+				  .replace(/[-':.,]/g, "")
+				  .trim();
+			  }
 
-          function filterLinks() {
-            const query = normalize(searchInput.value);
+			  function filterLinks() {
+			  let movies = 0
+			  let games = 0
 
-            searchableContainers.forEach(container => {
-              if (!container) return;
+				const query = normalize(searchInput.value);
 
-              const links = container.getElementsByTagName("a");
+				searchableContainers.forEach(container => {
+				if (!container) return;
 
-              for (let link of links) {
-                const text = normalize(link.textContent);
-                const href = normalize(link.getAttribute("href"));
+				const links = container.getElementsByTagName("a");
 
-                if (text.includes(query) || href.includes(query)) {
-                  link.style.display = "";
-                  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
-                    link.nextElementSibling.style.display = "";
-                  }
-                } else {
-                  link.style.display = "none";
-                  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
-                    link.nextElementSibling.style.display = "none";
-                  }
-                }
-              }
-            });
-          }
+				for (let link of links) {
+					if (link.classList.contains("18")) {
+						if (enabled == "false") {
+							const text = normalize(link.textContent);
+							const href = normalize(link.getAttribute("href"));
 
-          searchInput.addEventListener("input", filterLinks);
-        });
+							if (text.includes(query) || href.includes(query)) {
+							  link.style.display = "";
+							  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+								link.nextElementSibling.style.display = "";
+							  }
+							  if (container == document.getElementById("games")) {
+									games += 1;
+								} else if (container == document.getElementById("vids")) {
+									movies += 1;
+								}
+							  
+							} else {
+							  link.style.display = "none";
+							  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+								link.nextElementSibling.style.display = "none";
+							  }
+							}
+						}
+					} else {
+						const text = normalize(link.textContent);
+						const href = normalize(link.getAttribute("href"));
+
+						if (text.includes(query) || href.includes(query)) {
+						  link.style.display = "";
+						  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+							link.nextElementSibling.style.display = "";
+						  }
+						  if (container == document.getElementById("games")) {
+								games += 1;
+							} else if (container == document.getElementById("vids")) {
+								movies += 1;
+							}
+						} else {
+						  link.style.display = "none";
+						  if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+							link.nextElementSibling.style.display = "none";
+						  }
+						}
+					}
+				  }
+				});
+			
+			document.getElementById("gamecount").textContent = "Games (" + games + ")";
+			document.getElementById("vidcount").textContent = "Movies & Shows (" + movies + ")";
+			  }
+
+			searchInput.addEventListener("input", filterLinks);
+			});
         </script>
 	</body>
 </html>
