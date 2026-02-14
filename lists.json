@@ -433,7 +433,13 @@
 		{ "name": "Teenage Mutant Ninja Turtles", "url": "https://drive.google.com/file/d/1HVUHYMA2PXbSdfsT7poIqOqjZAqQs2_G/view" },
 		{ "name": "Sonic Prime", "url": "https://drive.google.com/drive/folders/1vVHOy9Le6mtAePr-8ziAJHr-VEa29Xtx" },
 		{ "name": "Kirby: Right Back At Ya!", "url": "https://drive.google.com/drive/folders/1LawIFQ48UCdP3-VUan7iWTm4l5EonWYw" },
-		{ "name": "Rise Of The Guardians", "url": "https://drive.google.com/file/d/1bMzgGKntjPQCT77WdUuE6djhSnkEBItC/view" }
+		{ "name": "Rise Of The Guardians", "url": "https://drive.google.com/file/d/1bMzgGKntjPQCT77WdUuE6djhSnkEBItC/view" },
+		{ "name": "Logan", "url": "https://drive.google.com/file/d/1yBRjWuNuLaqQjiS_ZTYUMSQW8BF9rCcx/view" },
+		{ "name": "Alita Battle Angel", "url": "https://drive.google.com/file/d/1CPg2NtDyfEcxoJI2VL6qOzxNQqhdlTaV/view" },
+		{ "name": "Sym-Bionic Titan S1", "url": "https://drive.google.com/drive/folders/1jpdxnk0BwzKwABj5YEonxWpbG5L0Ztvo" },
+		{ "name": "Cruella", "url": "https://drive.google.com/file/d/145c2T7cgpPrnQ10rOvV9PeXAjAVMcUEu/view" },
+		{ "name": "Batman: Assult On Arkham", "url": "https://drive.google.com/file/d/1ebWrMVk1nKPTbacUq8i_FPChdm3pLAr7/view" },
+		{ "name": "Honor Society", "url": "https://drive.google.com/file/d/1DaY1X8s6s5ZwDoCIHttLtYvASfXWArP2/view" }
 	],
 	"descriptions": [
 		"A gamer's hub for all things internet.",
@@ -459,5 +465,6 @@
 		"Homework? I've never heard of it..."
 	]
 }
+
 
 
