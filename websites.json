@@ -1,5 +1,5 @@
 {
-	"games": [
+	"play": [
 		{ "name": "2048", "url": "https://daocloud.github.io/dao-2048/" },
 		{ "name": "Reverse 2048", "url": "https://mattpk.github.io/Reverse-2048/" },
 		{ "name": "Flappy 2048", "url": "https://hczhcz.github.io/Flappy-2048/" },
@@ -289,11 +289,11 @@
 		{ "name": "Guitar Flash", "url": "https://guitarflash.com" },
 		{ "name": "KRESKA", "url": "https://kreska.art/app/" },
 		{ "name": "Receiptify", "url": "https://receiptify.herokuapp.com/" },
-		{ "name": "Epstein Files", "url": "https://www.justice.gov/epstein" },
+		{ "name": "Epstein Files", "url": "https://www.justice.gov/epstein", "tag": "18" },
 		{ "name": "Bouncy Balls", "url": "https://bouncyballs.org" },
 		{ "name": "Catch That Blue Bird", "url": "https://html-classic.itch.zone/html/15086260/index.html" }
 	],
-	"vids": [
+	"watch": [
 		{ "name": "South Park", "url": "https://drive.google.com/drive/u/0/mobile/folders/1w3o_qE2iwsj6XbA42mpGDGLX0Atgnc9k" },
 		{ "name": "Lego Batman Movie", "url": "https://dn721908.ca.archive.org/0/items/aqq_20240331/aqq.mp4" },
 		{ "name": "Ghost Stories Dub", "url": "https://archive.org/details/ghost-stories-ADV" },
