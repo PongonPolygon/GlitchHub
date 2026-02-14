@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("helpButton")
         .addEventListener("click", () => toggleSection("help"));
     toggleSection(startpage);
-    document.getElementById("main").style.display = "block";
 });
 
 // get links and add them
@@ -311,6 +310,8 @@ async function loadLinks() {
         }
 
         filterLinks();
+        document.getElementById("loading").remove();
+        document.getElementById("main").style.display = "block";
     }
 }
 
