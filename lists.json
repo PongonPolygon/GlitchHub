@@ -291,7 +291,8 @@
 		{ "name": "Receiptify", "url": "https://receiptify.herokuapp.com/" },
 		{ "name": "Epstein Files", "url": "https://www.justice.gov/epstein", "tag": "18" },
 		{ "name": "Bouncy Balls", "url": "https://bouncyballs.org" },
-		{ "name": "Catch That Blue Bird", "url": "https://html-classic.itch.zone/html/15086260/index.html" }
+		{ "name": "Catch That Blue Bird", "url": "https://html-classic.itch.zone/html/15086260/index.html" },
+		{ "name": "PokéPath TD", "url": "https://html-classic.itch.zone/html/15902423/PokePath%20TD%20WEB/index.html" }
 	],
 	"watch": [
 		{ "name": "South Park", "url": "https://drive.google.com/drive/u/0/mobile/folders/1w3o_qE2iwsj6XbA42mpGDGLX0Atgnc9k" },
@@ -328,7 +329,7 @@
 		{ "name": "Legally Blonde", "url": "https://dn710100.ca.archive.org/0/items/kabhi-khushi-kabhie-gham-720-p-bdrip-x-rg/Legally.Blonde.2001.720p.BrRip.x264.YIFY.mp4" },
 		{ "name": "American Psycho", "url": "https://dn721601.ca.archive.org/0/items/american.-psycho.-2000/American.Psycho.%202000%20.mp4" },
 		{ "name": "Coraline", "url": "https://drive.google.com/file/d/1GZFbNm4ry8ckaqpPgbAR334xa_doF_sf/view" },
-		{ "name": "Hetailia", "url": "https://archive.org/details/hetalia-axis-powers-english-dub" },
+		{ "name": "Hetailia", "url": "https://drive.google.com/drive/folders/12aP3DX6EyXA_GtRyyJuJjLkuTdNFAXg0" },
 		{ "name": "Moral Orel", "url": "https://www.youtube.com/watch?v=vRJRKGua1nc" },
 		{ "name": "Pokemon: The Movie", "url": "https://dn720001.ca.archive.org/0/items/hexziasmovies/Pokemon%20The%20Movie%202000.mp4" },
 		{ "name": "The Croods: A New Age", "url": "https://dn720001.ca.archive.org/0/items/hexziasmovies/The%20Croods%20A%20New%20Age.mp4" },
@@ -368,7 +369,7 @@
 		{ "name": "Rick and Morty", "url": "https://1movies.bz/watch/tv-rick-and-morty-y4ozd" },
 		{ "name": "Haunting Of The Hill House", "url": "https://1movies.bz/watch/tv-the-haunting-of-hill-house-1knq2" },
 		{ "name": "Dragon Ball Z", "url": "https://1movies.bz/watch/tv-dragon-ball-z-bknjy" },
-		{ "name": "Hazbin Hotel", "url": "https://1movies.bz/watch/tv-hazbin-hotel-46zle" },
+		{ "name": "Hazbin Hotel", "url": "https://drive.google.com/drive/folders/1TsZFN0yZQ378t8rYlNe-PIswNLTvCQCj" },
 		{ "name": "Corpse Bride", "url": "https://ia801707.us.archive.org/24/items/corpse-bride_2005/Corpse%20Bride%20%282005%29%281080p%20BDRip%20x265%20HEVC%20crf16-S%20DTS-HD%20MA%20E-AC3-AAC%205.1%20ENG%20MultiSUB%20%2B%20Isolated%20Score%29%5BcTurtle%5D.mp4" },
 		{ "name": "Doctor Who (1975)", "url": "https://1movies.bz/watch/tv-doctor-who-yr72p" },
 		{ "name": "Doctor Who (2006)", "url": "https://1movies.bz/watch/tv-doctor-who3-w8k5d" },
@@ -416,10 +417,22 @@
 		{ "name": "The Summer I Turned Pretty", "url": "https://drive.google.com/drive/folders/1swjDC0MyrZv8UzH7cBEIXSuB4cRYtR9K" },
 		{ "name": "Halloween", "url": "https://drive.google.com/file/d/1b1PfTP1R9DWBXDX4uTqHre-3_4V5U8aI/view" },
 		{ "name": "The Legend of Vox Machina S2", "url": "https://drive.google.com/drive/folders/1EXn9UFM3Tazgsc1smmjAJjauudhNbb49" },
-		{ "name": "Pantheon", "url": "https://drive.google.com/drive/folders/1Mq-M9rzEWrrfEfVdskkTJBnxPeCejM2Z" },
+		{ "name": "Pantheon S1", "url": "https://drive.google.com/drive/folders/1Mq-M9rzEWrrfEfVdskkTJBnxPeCejM2Z" },
+		{ "name": "Pantheon S2", "url": "https://drive.google.com/drive/folders/1hCaH2LDYaF8kjq-PPjwAwoLk2XF7t2D3" },
 		{ "name": "Jujustu Kaisen S1", "url": "https://drive.google.com/drive/folders/16yM1SHBKYLR6LdGaIBH-MgBdyvcibiaS" },
+		{ "name": "Jujustu Kaisen S2", "url": "https://drive.google.com/drive/folders/1UgLRpDSR2k4PsV9CW5FerP7LqTsSmfSL" },
 		{ "name": "Fight Club", "url": "https://dn720300.ca.archive.org/0/items/fight-club_202006/Fight%20Club.mp4" },
-		{ "name": "The Sound Of Music", "url": "https://dn721803.ca.archive.org/0/items/the-sound-of-music-1965-1080p/The%20Sound%20of%20Music%20%281965%29%20%5B1080p%5D.mp4" }
+		{ "name": "The Sound Of Music", "url": "https://dn721803.ca.archive.org/0/items/the-sound-of-music-1965-1080p/The%20Sound%20of%20Music%20%281965%29%20%5B1080p%5D.mp4" },
+		{ "name": "Twelve Forever", "url": "https://drive.google.com/drive/folders/1r-hUnoANt3XreuiIImE6-jHVdXkmiud8" },
+		{ "name": "Black Clover", "url": "https://archive.org/details/bl5ck-cl0v3r-tv-dub-seasons-1" },
+		{ "name": "The Hateful Eight", "url": "https://drive.google.com/file/d/12Hezdl4YOnRqhzlmaL3HI6JDTlEP84fK/view" },
+		{ "name": "Bullet Train", "url": "https://drive.google.com/file/d/1Ro-HY0aZSzXkisjhgQl_slyV6jTMyPIR/view" },
+		{ "name": "Spy Family S1", "url": "https://drive.google.com/drive/folders/1gJQqKSyFsnSemAypk2vDAz7SGxunhgvf" },
+		{ "name": "Spy Family S2", "url": "https://drive.google.com/drive/folders/1-KBswylYl6NF3_3ZVMX8xqdGyd0YHwV_" },
+		{ "name": "Teenage Mutant Ninja Turtles", "url": "https://drive.google.com/file/d/1HVUHYMA2PXbSdfsT7poIqOqjZAqQs2_G/view" },
+		{ "name": "Sonic Prime", "url": "https://drive.google.com/drive/folders/1vVHOy9Le6mtAePr-8ziAJHr-VEa29Xtx" },
+		{ "name": "Kirby: Right Back At Ya!", "url": "https://drive.google.com/drive/folders/1LawIFQ48UCdP3-VUan7iWTm4l5EonWYw" },
+		{ "name": "Rise Of The Guardians", "url": "https://drive.google.com/file/d/1bMzgGKntjPQCT77WdUuE6djhSnkEBItC/view" }
 	],
 	"descriptions": [
 		"A gamer's hub for all things internet.",
@@ -441,7 +454,7 @@
 		"This message is random every refresh.",
 		"Did you refresh just to see a new message?",
 		"A hub for games and stuff, and streaming.",
-		"Probably the best game hub ever. No joke."
+		"Probably the best game hub ever. No joke.",
+		"Homework? I've never heard of it..."
 	]
 }
-
