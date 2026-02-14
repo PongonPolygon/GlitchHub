@@ -71,31 +71,38 @@ function handleScroll() {
     }
 }
 window.addEventListener("scroll", handleScroll);
+let descriptions = [];
 
 // get links and add them
 async function loadLinks() {
     try {
-        const resp = await fetch("websites.json");
+        const resp = await fetch("lists.json");
         if (!resp.ok) throw new Error("Failed to get sites");
         
         const data = await resp.json();
         
         Object.keys(data).forEach(listName => {
-            const container = document.getElementById(listName);
-            if (!container) return;
-            
-            data[listName].forEach(item => {
-                const link = document.createElement("a");
-                link.href = item.url;
-                link.textContent = item.name;
-                
-                if (item.tag) {
-                    link.className = item.tag;
-                }
-                
-                container.appendChild(link);
-                container.appendChild(document.createElement("br"));
-            });
+            if (listName != "descriptions") {
+                const container = document.getElementById(listName);
+                if (!container) return;
+
+                data[listName].forEach(item => {
+                    const link = document.createElement("a");
+                    link.href = item.url;
+                    link.textContent = item.name;
+
+                    if (item.tag) {
+                        link.className = item.tag;
+                    }
+
+                    container.appendChild(link);
+                    container.appendChild(document.createElement("br"));
+                });
+            } else {
+                data[listName].forEach(item => {
+                    descriptions.push(item);
+                });
+            }
         });
         onLinksReady();
         
@@ -275,28 +282,6 @@ async function loadLinks() {
         });
         
         //description
-        const descriptions = [
-            "A gamer's hub for all things internet.",
-            "Probably too addicting to leave lol",
-            "I bet you're in class right now 😭🙏",
-            "So, what are you clicking first?",
-            "You can recommend your own games y'know!",
-            "Why is Slope 2 so damn addicting???",
-            "Over 300 links to games, movies, and shows!",
-            "2-Player games can get you caught in class!",
-            "You lost the game btw, sorry not sorry.",
-            "I made this myself, and I don't regret it.",
-            "You know a site is good when you use it a lot.",
-            "Based on Tyler's Game Hub, now it's deleted.",
-            "[insert cool description here]",
-            "Most of these links are from pinterest lol",
-            "Sweat and tears DID NOT go into this.",
-            "Not on google search results... yet!",
-            "This message is random every refresh.",
-            "Did you refresh just to see a new message?",
-            "A hub for games and stuff, and streaming."
-        ];
-
         document.getElementById("description").textContent =
         descriptions[Math.floor(Math.random() * descriptions.length)];
         
