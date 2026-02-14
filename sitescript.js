@@ -54,6 +54,24 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleSection(startpage);
 });
 
+let scrollPosition = 0;
+let isTicking = 0;
+
+function updateAnimation() {
+    document.getElementById("body").style.backgroundPositionY = scrollPosition * 0.5 + "px";
+    document.getElementById("title").style.top = ((scrollPosition * 0.25)-20) + "px";
+    isTicking = false;
+}
+
+function handleScroll() {
+    scrollPosition = window.scrollY;
+    if (!isTicking) {
+        window.requestAnimationFrame(updateAnimation);
+        isTicking = true;
+    }
+}
+window.addEventListener("scroll", handleScroll);
+
 // get links and add them
 async function loadLinks() {
     try {
