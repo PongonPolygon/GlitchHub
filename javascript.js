@@ -3,15 +3,22 @@ const params = new URLSearchParams(window.location.search);
 const page = params.get("page");
 let startpage = "";
 
-if (page == "play") {
-    startpage = "play";
-} else if (page == "watch") {
-    startpage = "watch";
-} else if (page == "help") {
-    startpage = "help";
-} else {
-    startpage = "play";
+startpage = page || "play";
+
+function setParams(name, value) {
+    const param = new URLSearchParams(window.location.search);
+    param.set(name, value);
+    const newURL = `${window.location.pathname}?${param.toString()}`;
+    window.history.pushState({}, "", newURL);
 }
+
+setParams("page", startpage);
+
+window.addEventListener("popstate", () => {
+    const params = new URLSearchParams(window.location.search);
+    const page = params.get("page") || "play";
+    toggleSection(page);
+});
 
 // toggling visibility for sections
 function toggleSection(section) {
@@ -21,36 +28,32 @@ function toggleSection(section) {
     document.getElementById("playButton").classList.remove("active-button");
     document.getElementById("watchButton").classList.remove("active-button");
     document.getElementById("helpButton").classList.remove("active-button");
-
-    if (section == "play") {
-        document.getElementById("playSection").classList.add("active");
-        document.getElementById("playButton").classList.add("active-button");
-
+    
+    document.getElementById(section + "Section").classList.add("active");
+    document.getElementById(section + "Button").classList.add("active-button");
+    document.title = "GlitchHub | " + section.charAt(0).toUpperCase() + section.slice(1);
+    if (section != "help") {
         document.getElementById("searchBar").style.display = "inline";
-        document.title = "GlitchHub | Play";
-    } else if (section == "watch") {
-        document.getElementById("watchSection").classList.add("active");
-        document.getElementById("watchButton").classList.add("active-button");
-
-        document.getElementById("searchBar").style.display = "inline";
-        document.title = "GlitchHub | Watch";
-    } else if (section == "help") {
-        document.getElementById("helpSection").classList.add("active");
-        document.getElementById("helpButton").classList.add("active-button");
-
+    } else {
         document.getElementById("searchBar").style.display = "none";
-        document.title = "GlitchHub | Help";
     }
 }
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("playButton")
-        .addEventListener("click", () => toggleSection("play"));
+    document.getElementById("playButton").addEventListener("click", function() {
+        toggleSection("play");
+        setParams("page", "play");
+    });
+    
+    document.getElementById("watchButton").addEventListener("click", function() {
+        toggleSection("watch");
+        setParams("page", "watch");
+    });
 
-    document.getElementById("watchButton")
-        .addEventListener("click", () => toggleSection("watch"));
-
-    document.getElementById("helpButton")
-        .addEventListener("click", () => toggleSection("help"));
+    document.getElementById("helpButton").addEventListener("click", function() {
+        toggleSection("help");
+        setParams("page", "help");
+    });
+    
     toggleSection(startpage);
 });
 
