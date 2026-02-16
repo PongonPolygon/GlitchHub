@@ -449,14 +449,24 @@
 		{"name": "Link Click", "url": "https://drive.google.com/drive/folders/1sAl88MKdeZkIKZ6VUvKbQod85EndbRz7"},
 		{"name": "Welcome to Derry", "url": "https://drive.google.com/drive/folders/1nl8QD9jezyXlZPs0JYqOjCWtd-A5rtmY"},
 		{"name": "Chainsaw Man S1", "url": "https://drive.google.com/drive/folders/1mLP07yNWlhYAIRW2i7QTveUy-PlKrCwy"},
-		{"name": "One Piece", "url": "One Piece"},
+		{"name": "One Piece", "url": "https://drive.google.com/drive/folders/1eKvZGBtOZep1fyvobAEqELTK0LtY4nU1"},
 		{"name": "Spirited Away", "url": "https://drive.google.com/file/d/1sFvzAbum2UGqazkhrSmbtSMO9NjSV968/view?pli=1"},
 		{"name": "Death Note", "url": "https://drive.google.com/drive/folders/166tNe4UUWgYROWK4DwhtZKxgrpFZZAm5"},
 		{"name": "My Deer Friend Nokotan", "url": "https://drive.google.com/drive/folders/1wLa94fdNpe9uFoLRZstYSIOg7fgsJOID"},
 		{"name": "Spirited Away", "url": "https://drive.google.com/file/d/1sFvzAbum2UGqazkhrSmbtSMO9NjSV968/view?pli=1"},
 		{"name": "Scott Pilgrim Vs. The World", "url": "https://drive.google.com/file/d/1b6QuoTt4cewzNXyhUZvqGtbZWvg8V-aT/view"},
 		{"name": "Sonic Movies", "url": "https://drive.google.com/drive/folders/1d-tAfmr_Qomv86YWrOIcSXHrAoRlkiAo"},
-		{"name": "The Shining", "url": "https://drive.google.com/file/d/1BJ-24OqRAM91ujUu5qJkxFQsoav9yDQU/view"}
+		{"name": "The Shining", "url": "https://drive.google.com/file/d/1BJ-24OqRAM91ujUu5qJkxFQsoav9yDQU/view"},
+		{"name": "Monster High", "url": "https://www.youtube.com/watch?v=TAZs98t47zA"},
+		{"name": "Hannibal S1", "url": "https://archive.org/details/hannibal-s01"},
+		{"name": "Hannibal S2", "url": "https://archive.org/details/hannibal-s-02"},
+		{"name": "Hannibal S3", "url": "https://archive.org/details/hannibal-s-03"},
+		{"name": "Nirvanna the Band Show S1", "url": "https://archive.org/details/NTBTS_S1"},
+		{"name": "Nirvanna the Band Show S2", "url": "https://archive.org/details/NTBTS_S2"},
+		{"name": "The Midnight Gospel", "url": "https://archive.org/details/themidnightgospel-uws13"},
+		{"name": "Metal Family", "url": "https://www.youtube.com/playlist?list=PLtpFJ75Dkdv7_lCsFrW6koiWegj7U0F3t"},
+		{"name": "Cowboy Bebop", "url": "https://archive.org/details/cb_20201210"},
+		{"name": "Inside Job", "url": "https://archive.org/details/inside-job-full-series"}
 	],
 	"descriptions": [
 		"A gamer's hub for all things internet.",
@@ -482,4 +492,3 @@
 		"Homework? I've never heard of it..."
 	]
 }
-
