@@ -293,7 +293,15 @@
 		{"name": "Bouncy Balls", "url": "https://bouncyballs.org"},
 		{"name": "Catch That Blue Bird", "url": "https://html-classic.itch.zone/html/15086260/index.html"},
 		{"name": "PokéPath TD", "url": "https://html-classic.itch.zone/html/15902423/PokePath%20TD%20WEB/index.html"},
-		{"name": "Bouncemasters", "url": "https://3eq3pd4fpqal0.h5games.usercontent.goog/v/1k13nb2q2q9q0/"}
+		{"name": "Bouncemasters", "url": "https://3eq3pd4fpqal0.h5games.usercontent.goog/v/1k13nb2q2q9q0/"},
+		{"name": "Five Nights at Freddy's", "url": "https://irv77.github.io/hd_fnaf/1/"},
+		{"name": "Five Nights at Freddy's 2", "url": "https://irv77.github.io/hd_fnaf/2/"},
+		{"name": "Five Nights at Freddy's 3", "url": "https://irv77.github.io/hd_fnaf/3/"},
+		{"name": "Five Nights at Freddy's 4", "url": "https://irv77.github.io/hd_fnaf/4/"},
+		{"name": "Five Nights at Freddy's World", "url": "https://irv77.github.io/hd_fnaf/w/"},
+		{"name": "Five Nights at Freddy's: Sister Location", "url": "https://irv77.github.io/hd_fnaf/sl/"},
+		{"name": "Five Nights at Freddy's Pizzaria Simulator", "url": "https://irv77.github.io/hd_fnaf/ps/"},
+		{"name": "Five Nights at Freddy's Ultimate Custom Night", "url": "https://irv77.github.io/hd_fnaf/ucn/"},
 	],
 	"watch": [
 		{"name": "South Park", "url": "https://drive.google.com/drive/u/0/mobile/folders/1w3o_qE2iwsj6XbA42mpGDGLX0Atgnc9k"},
@@ -466,7 +474,11 @@
 		{"name": "The Midnight Gospel", "url": "https://archive.org/details/themidnightgospel-uws13"},
 		{"name": "Metal Family", "url": "https://www.youtube.com/playlist?list=PLtpFJ75Dkdv7_lCsFrW6koiWegj7U0F3t"},
 		{"name": "Cowboy Bebop", "url": "https://archive.org/details/cb_20201210"},
-		{"name": "Inside Job", "url": "https://archive.org/details/inside-job-full-series"}
+		{"name": "Inside Job", "url": "https://archive.org/details/inside-job-full-series"},
+		{"name": "On The Line", "url": "https://ok.ru/videoembed/7004468021963"},
+		{"name": "Get Out", "url": "https://drive.google.com/file/d/1XsCH7ONUGuieiVHsixjtiZm23W6K8d2b/view"},
+		{"name": "The End of the F***ing World S1", "url": "https://drive.google.com/drive/folders/1kCLDG7cS8HVCVq4f_agd84yee1ki3j6R"},
+		{"name": "The End of the F***ing World S2", "url": "https://drive.google.com/drive/folders/1N8eh4jHAPD1zNPzNa3crA3olGAldbOVB"}
 	],
 	"descriptions": [
 		"A gamer's hub for all things internet.",
@@ -498,7 +510,3 @@
 		"You should check out my hope page too y'know."
 	]
 }
-
-
-
-
