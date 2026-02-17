@@ -313,20 +313,27 @@ async function loadLinks() {
         // end of filter URLS
         
         // add icons to each URL
+        const faviconCache = new Map();
+
         document.querySelectorAll("a").forEach((link) => {
             if (link.querySelector("img")) return;
-            
-            let domain;
-            
+            let hostname;
             try {
-                domain = new URL(link.href).origin;
+                hostname = new URL(link.href).hostname;
             } catch {
                 return;
             }
-            
+            let faviconURL;
+            // reuse if already known
+            if (faviconCache.has(hostname)) {
+                faviconURL = faviconCache.get(hostname);
+            } else {
+                faviconURL = `https://www.google.com/s2/favicons?sz=32&domain_url=${hostname}`;
+                faviconCache.set(hostname, faviconURL);
+            }
             const icon = document.createElement("img");
-            icon.src = `https://www.google.com/s2/favicons?sz=32&domain_url=${domain}`;
-            icon.alt = "favicon";
+            icon.src = faviconURL;
+            icon.alt = hostname;
             icon.style.width = "1em";
             icon.style.height = "1em";
             icon.style.verticalAlign = "middle";
