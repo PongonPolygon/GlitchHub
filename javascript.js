@@ -341,7 +341,7 @@ async function loadLinks() {
             if (faviconCache.has(hostname)) {
                 faviconURL = faviconCache.get(hostname);
             } else {
-                faviconURL = `https://www.google.com/s2/favicons?sz=32&domain_url=${hostname}`;
+                faviconURL = `https://www.google.com/s2/favicons?sz=32&domain_url=${encodeURIComponent(origin)}`;
                 faviconCache.set(hostname, faviconURL);
                 saveCache();
             }
