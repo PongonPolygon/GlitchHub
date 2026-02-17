@@ -305,7 +305,8 @@
 		{"name": "Emoji Kitchen", "url": "https://emojikitchen.dev"},
 		{"name": "Spotify Bedroom", "url": "https://madeonverse.com"},
 		{"name": "Little Chef", "url": "https://html-classic.itch.zone/html/15194587/index.html"},
-		{"name": "Acid Bunny", "url": "https://pongonpolygon.github.io/glitchhub_games/AcidBunny/"}
+		{"name": "Acid Bunny", "url": "https://pongonpolygon.github.io/glitchhub_games/AcidBunny/AcidBunny/"},
+		{"name": "Acid Bunny 2", "url": "https://pongonpolygon.github.io/glitchhub_games/AcidBunny/AcidBunny2/"}
 	],
 	"watch": [
 		{"name": "South Park", "url": "https://drive.google.com/drive/u/0/mobile/folders/1w3o_qE2iwsj6XbA42mpGDGLX0Atgnc9k"},
@@ -534,6 +535,7 @@
 		"You should check out my home page too y'know."
 	]
 }
+
 
 
 
