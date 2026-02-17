@@ -313,7 +313,7 @@ async function loadLinks() {
         // end of filter URLS
         
         // add icons to each URL
-        const STORAGE_KEY = "faviconDomainCache";
+        const STORAGE_KEY = "FAVICON_CACHE";
         const faviconCache = new Map(Object.entries(
             JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")
         ));
@@ -328,13 +328,16 @@ async function loadLinks() {
         document.querySelectorAll("a").forEach((link) => {
             if (link.querySelector("img")) return;
 
-            let hostname;
+            let hostname, origin;
 
             try {
-                hostname = new URL(link.href).hostname;
+                const url = new URL(link.href);
+                hostname = url.hostname;
+                origin = url.origin;
             } catch {
                 return;
             }
+
 
             let faviconURL;
 
