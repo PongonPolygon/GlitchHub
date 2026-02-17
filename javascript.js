@@ -1,3 +1,38 @@
+/*
+ _______  ___      _______  _______  _______  _______    
+|       ||   |    |       ||   _   ||       ||       |   
+|    _  ||   |    |    ___||  |_|  ||  _____||    ___|   
+|   |_| ||   |    |   |___ |       || |_____ |   |___    
+|    ___||   |___ |    ___||       ||_____  ||    ___|   
+|   |    |       ||   |___ |   _   | _____| ||   |___    
+|___|    |_______||_______||__| |__||_______||_______|   
+ ______   _______  __    _  _______                      
+|      | |       ||  |  | ||       |                     
+|  _    ||   _   ||   |_| ||_     _|                     
+| | |   ||  | |  ||       |  |   |                       
+| |_|   ||  |_|  ||  _    |  |   |                       
+|       ||       || | |   |  |   |                       
+|______| |_______||_|  |__|  |___|                       
+ _______  _______  _______  _______  ___                 
+|       ||       ||       ||   _   ||   |                
+|  _____||_     _||    ___||  |_|  ||   |                
+| |_____   |   |  |   |___ |       ||   |                
+|_____  |  |   |  |    ___||       ||   |___             
+ _____| |  |   |  |   |___ |   _   ||       |            
+|_______|  |___|  |_______||__| |__||_______|            
+ _______  _______  ______   _______    __     __     __  
+|       ||       ||      | |       |  |  |   |  |   |  | 
+|       ||   _   ||  _    ||    ___|  |  |   |  |   |  | 
+|       ||  | |  || | |   ||   |___   |  |   |  |   |  | 
+|      _||  |_|  || |_|   ||    ___|  |__|   |__|   |__| 
+|     |_ |       ||       ||   |___    __     __     __  
+|_______||_______||______| |_______|  |__|   |__|   |__| 
+
+I worked hard on this and it would be annoying to have precious code taken (unless you add credits!)
+*/
+
+
+
 // get page ?page=
 const params = new URLSearchParams(window.location.search);
 const page = params.get("page");
@@ -159,14 +194,33 @@ async function loadLinks() {
         const searchBar = document.getElementById("searchBar");
         //normalize string for searching
         function normalize(str) {
-            return str.toLowerCase().replace(/[':.,]/g, "").replace(/[-]/g, " ").trim();
+            str = String(str ?? "");
+            const base = str.toLowerCase().replace(/[':.,]/g, "").trim();
+
+            return [
+                base,
+                base.replace(/[-_/]/g, " "),
+                base.replace(/[-_/]/g, ""),
+            ];
+        }
+        function matchesSearch(query, text, href) {
+            if (!query) return true;
+
+            const qForms = normalize(query);
+            const textForms = normalize(text);
+            const hrefForms = normalize(href);
+
+            return qForms.some(q =>
+                textForms.some(t => t.includes(q)) ||
+                hrefForms.some(h => h.includes(q))
+            );
         }
         //filtering links
         function filterLinks() {
             let play = 0;
             let watch = 0;
             
-            const query = normalize(searchBar.value);
+            const query = searchBar.value;
             
             searchableContainers.forEach(container => {
                 if (!container) return;
@@ -175,17 +229,15 @@ async function loadLinks() {
                 
                 for (let link of links) {
                 const is18 = link.classList.contains("18");
-                const text = normalize(link.textContent);
+                const text = link.textContent;
                 const href = normalize(link.getAttribute("href"));
 
                 // Determine if link should be visible
                 let visible = true;
 
                 if (is18 && enabled) {
-                    // 18+ filter is ON → hide all 18 links
                     visible = false;
-                } else if (query && !(text.includes(query) || href.includes(query))) {
-                    // Search query doesn’t match → hide
+                } else if (!matchesSearch(query, text, href)) {
                     visible = false;
                 }
 
