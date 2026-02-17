@@ -33,27 +33,48 @@ I worked hard on this and it would be annoying to have precious code taken (unle
 
 
 
+
+
 // get page ?page=
+let siteReady = false;
+
 const params = new URLSearchParams(window.location.search);
 const page = params.get("page");
 let startpage = "";
 
 startpage = page || "play";
 
-function setParams(name, value) {
-    const param = new URLSearchParams(window.location.search);
-    param.set(name, value);
-    const newURL = `${window.location.pathname}?${param.toString()}`;
-    window.history.pushState({}, "", newURL);
-}
-
-setParams("page", startpage);
-
-window.addEventListener("popstate", () => {
+function syncPageFromURL() {
+    if (!siteReady) return; // wait until links + UI exist
     const params = new URLSearchParams(window.location.search);
     const page = params.get("page") || "play";
     toggleSection(page);
+}
+
+window.addEventListener("pageshow", syncPageFromURL);
+window.addEventListener("popstate", syncPageFromURL);
+
+
+window.addEventListener("pageshow", (event) => {
+    // fires on normal load AND when coming back from another site
+    syncPageFromURL();
 });
+
+function setParams(name, value, replace = false) {
+    const param = new URLSearchParams(window.location.search);
+    param.set(name, value);
+    const newURL = `${window.location.pathname}?${param.toString()}`;
+    
+    if (replace)
+        history.replaceState({}, "", newURL);
+    else
+        history.pushState({}, "", newURL);
+}
+
+// first load should REPLACE, not push
+setParams("page", startpage, true);
+
+window.addEventListener("popstate", syncPageFromURL);
 
 // toggling visibility for sections
 function toggleSection(section) {
@@ -88,8 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleSection("help");
         setParams("page", "help");
     });
-    
-    toggleSection(startpage);
 });
 
 let scrollPosition = 0;
@@ -270,7 +289,7 @@ async function loadLinks() {
                 }
             }
         });
-        
+        //18+ filter isnt used right now cuz it just annoying tbh
         //18+ cookie check change
         document.getElementById("18Check").addEventListener("change", function() {
             if (this.checked) {
@@ -411,6 +430,9 @@ async function loadLinks() {
         filterLinks();
         document.getElementById("loading").remove();
         document.getElementById("main").style.display = "block";
+        
+        siteReady = true;
+        syncPageFromURL();
     }
 }
 
