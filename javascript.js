@@ -343,22 +343,35 @@ async function loadLinks() {
             } else {
                 faviconURL = `https://www.google.com/s2/favicons?sz=32&domain_url=${hostname}`;
                 faviconCache.set(hostname, faviconURL);
-                saveCache(); // store permanently
+                saveCache();
             }
 
-            const icon = document.createElement("img");
-            icon.src = faviconURL;
+            // create image but DO NOT attach yet
+            const icon = new Image();
+
             icon.alt = hostname;
             icon.style.width = "1em";
             icon.style.height = "1em";
-
             icon.style.verticalAlign = "middle";
             icon.style.marginTop = "-.4em";
             icon.style.marginRight = "6px";
             icon.style.borderRadius = "25%";
 
-            link.prepend(icon);
+            // only insert after load
+            icon.addEventListener("load", () => {
+                link.prepend(icon);
+            });
+
+            // optional: if favicon fails, remove cache entry so it can retry later
+            icon.addEventListener("error", () => {
+                faviconCache.delete(hostname);
+                saveCache();
+            });
+
+            // start loading AFTER listeners are attached
+            icon.src = faviconURL;
         });
+
 
         
         //description
