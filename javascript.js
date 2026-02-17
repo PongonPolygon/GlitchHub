@@ -313,35 +313,53 @@ async function loadLinks() {
         // end of filter URLS
         
         // add icons to each URL
-        const faviconCache = new Map();
+        const STORAGE_KEY = "faviconDomainCache";
+        const faviconCache = new Map(Object.entries(
+            JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")
+        ));
+
+        function saveCache() {
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(Object.fromEntries(faviconCache))
+            );
+        }
 
         document.querySelectorAll("a").forEach((link) => {
             if (link.querySelector("img")) return;
+
             let hostname;
+
             try {
                 hostname = new URL(link.href).hostname;
             } catch {
                 return;
             }
+
             let faviconURL;
-            // reuse if already known
+
             if (faviconCache.has(hostname)) {
                 faviconURL = faviconCache.get(hostname);
             } else {
                 faviconURL = `https://www.google.com/s2/favicons?sz=32&domain_url=${hostname}`;
                 faviconCache.set(hostname, faviconURL);
+                saveCache(); // store permanently
             }
+
             const icon = document.createElement("img");
             icon.src = faviconURL;
             icon.alt = hostname;
             icon.style.width = "1em";
             icon.style.height = "1em";
+
             icon.style.verticalAlign = "middle";
             icon.style.marginTop = "-.4em";
             icon.style.marginRight = "6px";
             icon.style.borderRadius = "25%";
+
             link.prepend(icon);
         });
+
         
         //description
         document.getElementById("description").textContent =
