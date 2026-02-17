@@ -469,7 +469,9 @@
 		{"name": "My Deer Friend Nokotan", "url": "https://drive.google.com/drive/folders/1wLa94fdNpe9uFoLRZstYSIOg7fgsJOID"},
 		{"name": "Spirited Away", "url": "https://drive.google.com/file/d/1sFvzAbum2UGqazkhrSmbtSMO9NjSV968/view?pli=1"},
 		{"name": "Scott Pilgrim Vs. The World", "url": "https://drive.google.com/file/d/1b6QuoTt4cewzNXyhUZvqGtbZWvg8V-aT/view"},
-		{"name": "Sonic Movies", "url": "https://drive.google.com/drive/folders/1d-tAfmr_Qomv86YWrOIcSXHrAoRlkiAo"},
+		{"name": "Sonic the Hedgehog", "url": "https://drive.google.com/file/d/1VlfDQ-WnNbsDgtPdtng3BUwHBbuj44I-/view"},
+		{"name": "Sonic the Hedgehog 2", "url": "https://drive.google.com/file/d/1QTk7DHGr927bsbxKCp6FOGlaPIhUZk5e/view"},
+		{"name": "Sonic the Hedgehog 3", "url": "https://drive.google.com/file/d/1UxJlwWC9llGYRUaeow8TmcXROMH5qT2_/view"},
 		{"name": "The Shining", "url": "https://drive.google.com/file/d/1BJ-24OqRAM91ujUu5qJkxFQsoav9yDQU/view"},
 		{"name": "Monster High", "url": "https://www.youtube.com/watch?v=TAZs98t47zA"},
 		{"name": "Hannibal S1", "url": "https://archive.org/details/hannibal-s01"},
@@ -495,7 +497,11 @@
 		{"name": "Amphibia S1", "url": "https://mega.nz/folder/uo1m1QhK#DeTvIGahcYJYFv8ztbYVdw"},
 		{"name": "Amphibia S2", "url": "https://mega.nz/folder/X0d0wLJA#QPJ5tQ7MwcQV7ZhJJD4gmA"},
 		{"name": "Five Nights At Freddy's", "url": "https://dn721604.ca.archive.org/0/items/28742ba-0-eda-9-4d-45-8e-25-c-8aebedba-8a-6/Five.Nights.at.Freddys.2023.720p.PCOK.WEBRip.800MB.x264-GalaxyRG.mp4"},
-		{"name": "Five Nights At Freddy's 2", "url": "https://drive.google.com/file/d/1dW1XsOWtiL0mGHOFIB8n0rEhLPoa2buJ/view"}
+		{"name": "Five Nights At Freddy's 2", "url": "https://drive.google.com/file/d/1dW1XsOWtiL0mGHOFIB8n0rEhLPoa2buJ/view"},
+		{"name": "All Dogs Go to Heaven", "url": "https://ia802309.us.archive.org/3/items/all-dogs-go-to-heaven-the-series-full/001%20All%20Dogs%20Go%20to%20Heaven.mp4"},
+		{"name": "All Dogs Go to Heaven 2", "url": "https://ia802309.us.archive.org/3/items/all-dogs-go-to-heaven-the-series-full/100%20All%20Dogs%20Go%20to%20Heaven%202.mp4"},
+		{"name": "A Charlie Brown Christmas", "url": "https://drive.google.com/file/d/1e2UIrJdsz_0k5tp2v0EnPZiPv2ZQSTzg/view"},
+		{"name": "Pingu", "url": "https://archive.org/details/Pingu_Season_1to6"}
 	],
 	"descriptions": [
 		"A gamer's hub for all things internet.",
@@ -527,6 +533,7 @@
 		"You should check out my home page too y'know."
 	]
 }
+
 
 
 
