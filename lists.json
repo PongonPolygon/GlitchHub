@@ -314,7 +314,8 @@
 		{"name": "Google Baseball", "url": "https://www.google.com/logos/2019/july4th19/r6/july4th19.html"},
 		{"name": "MovieStarPlanet 2", "url": "https://moviestarplanet2.com/"},
 		{"name": "Fortnite", "url": "https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2"},
-		{"name": "Roblox", "url": "https://web.cloudmoonapp.com/game/com.roblox.client/"}
+		{"name": "Roblox", "url": "https://web.cloudmoonapp.com/game/com.roblox.client/"},
+		{"name": "Art Class Enhanced", "url": "https://lrga.space/"}
 	],
 	"watch": [
 		{"name": "South Park", "url": "https://drive.google.com/drive/u/0/mobile/folders/1w3o_qE2iwsj6XbA42mpGDGLX0Atgnc9k"},
@@ -547,5 +548,6 @@
 		"When you don't want to work on class work!"
 	]
 }
+
 
 
