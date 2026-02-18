@@ -154,7 +154,7 @@ async function loadLinks() {
 
                     container.appendChild(link);
                     container.appendChild(document.createElement("br"));
-                    console.log("Added '" + link.textContent + "' to " + container + " section.");
+                    console.log("Added '" + link.textContent + "' to " + listName + " section.");
                 });
             } else {
                 data[listName].forEach(item => {
@@ -438,5 +438,6 @@ async function loadLinks() {
 }
 
 loadLinks();
+
 
 
