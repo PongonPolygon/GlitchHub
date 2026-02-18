@@ -316,7 +316,8 @@
 		{"name": "Fortnite", "url": "https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2"},
 		{"name": "Roblox", "url": "https://web.cloudmoonapp.com/game/com.roblox.client/"},
 		{"name": "WorldGuessr", "url": "https://www.worldguessr.com"},
-		{"name": "Do NOT Take This Cat Home", "url": "https://kdata1.com/5000/2025/DoNOTTakeThisCatHome/"}
+		{"name": "Do NOT Take This Cat Home", "url": "https://kdata1.com/5000/2025/DoNOTTakeThisCatHome/"},
+		{"name": "Webcam Toy", "url": "https://webcamtoy.com/"}
 	],
 	"watch": [
 		{"name": "South Park", "url": "https://drive.google.com/drive/u/0/mobile/folders/1w3o_qE2iwsj6XbA42mpGDGLX0Atgnc9k"},
@@ -552,6 +553,7 @@
 		"When you don't want to work on class work!"
 	]
 }
+
 
 
 
