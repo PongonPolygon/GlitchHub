@@ -54,7 +54,9 @@ function syncPageFromURL() {
 if (search != null) {
     document.getElementById("searchBar").value = search;
     params.delete("search");
-} else {
+ 
+    const newURL = `${window.location.pathname}?${params.toString()}`;
+    history.replaceState({}, "", newURL);
 }
 
 window.addEventListener("pageshow", syncPageFromURL);
@@ -450,3 +452,4 @@ async function loadLinks() {
 }
 
 loadLinks();
+
