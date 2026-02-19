@@ -36,19 +36,26 @@ I worked hard on this and it would be annoying to have precious code taken (unle
 
 
 // get page ?page=
+const debug = false;
+
 let siteReady = false;
 
 const params = new URLSearchParams(window.location.search);
-const page = params.get("page");
-let startpage = "";
-
-startpage = page || "play";
+let page = params.get("page") || "play";
+let search = params.get("search");
 
 function syncPageFromURL() {
     if (!siteReady) return; // wait until links + UI exist
     const params = new URLSearchParams(window.location.search);
     const page = params.get("page") || "play";
     toggleSection(page);
+}
+
+if (search != null) {
+    console.log("found search | " + search);
+    document.getElementById("searchBar").value = search;
+} else {
+    console.log("did not see search");
 }
 
 window.addEventListener("pageshow", syncPageFromURL);
@@ -72,7 +79,7 @@ function setParams(name, value, replace = false) {
 }
 
 // first load should REPLACE, not push
-setParams("page", startpage, true);
+setParams("page", page, true);
 
 window.addEventListener("popstate", syncPageFromURL);
 
@@ -154,7 +161,9 @@ async function loadLinks() {
 
                     container.appendChild(link);
                     container.appendChild(document.createElement("br"));
-                    console.log("Added '" + link.textContent + "' to " + listName + " section.");
+                    if (debug) {
+                        console.log("Added '" + link.textContent + "' to " + listName + " section.");
+                    }
                 });
             } else {
                 data[listName].forEach(item => {
@@ -242,6 +251,7 @@ async function loadLinks() {
             
             const query = searchBar.value;
             
+            // loop throug all the containers
             searchableContainers.forEach(container => {
                 if (!container) return;
                 
@@ -252,7 +262,7 @@ async function loadLinks() {
                 const text = link.textContent;
                 const href = normalize(link.getAttribute("href"));
 
-                // Determine if link should be visible
+                // determine if link should be visible
                 let visible = true;
 
                 if (is18 && enabled) {
@@ -261,13 +271,13 @@ async function loadLinks() {
                     visible = false;
                 }
 
-                // Apply visibility
+                // set visibility
                 link.style.display = visible ? "" : "none";
                 if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
                     link.nextElementSibling.style.display = visible ? "" : "none";
                 }
 
-                // Count only visible links
+                // count only visible links
                 if (visible) {
                     if (container === document.getElementById("play")) play++;
                     else if (container === document.getElementById("watch")) watch++;
@@ -275,9 +285,19 @@ async function loadLinks() {
             }
 
             });
+            
+            // set search query
+            if (search != null) {
+                setParams("search", query);
+            } else {
+                setParams("search", query, true);
+            }
+            
+            // update count for titles
             document.getElementById("playCount").textContent = "Games (" + play + ")";
             document.getElementById("watchCount").textContent = "Movies & Shows (" + watch + ")";
         }
+        
         searchableContainers.forEach(container => {
             if (!container) return;
             
@@ -438,6 +458,3 @@ async function loadLinks() {
 }
 
 loadLinks();
-
-
-
