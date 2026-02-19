@@ -36,7 +36,7 @@ I worked hard on this and it would be annoying to have precious code taken (unle
 
 
 // get page ?page=
-const debug = false;
+const debug = false; // for debug printing
 
 let siteReady = false;
 
@@ -52,10 +52,9 @@ function syncPageFromURL() {
 }
 
 if (search != null) {
-    console.log("found search | " + search);
     document.getElementById("searchBar").value = search;
+    params.delete("search");
 } else {
-    console.log("did not see search");
 }
 
 window.addEventListener("pageshow", syncPageFromURL);
@@ -285,13 +284,6 @@ async function loadLinks() {
             }
 
             });
-            
-            // set search query
-            if (search != null) {
-                setParams("search", query);
-            } else {
-                setParams("search", query, true);
-            }
             
             // update count for titles
             document.getElementById("playCount").textContent = "Games (" + play + ")";
