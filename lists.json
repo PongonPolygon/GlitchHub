@@ -540,7 +540,10 @@
 		{"name": "Frozen (2013)", "url": "https://drive.google.com/file/d/1XIuN4Zp35mW0iN4p0ME5APxH18-6Zqft/view"},
 		{"name": "Frozen II (2019)", "url": "https://drive.google.com/file/d/1hpUpKEdeT9ta-8FjSpMUAXw17E-8uwIY/view"},
 		{"name": "Pokémon Detective Pikachu (2019)", "url": "https://drive.google.com/file/d/1q5wcbuy536XQKTBAF7ImApMAlNMVHM5T/view"},
-		{"name": "Total Drama Island", "url": "archive.org/details/total-drama-all-episodes"}
+		{"name": "Total Drama Island", "url": "archive.org/details/total-drama-all-episodes"},
+		{"name": "Anaconda (2025)", "url": "https://drive.google.com/file/d/1e6WxaBMG5Uz-7oR-RNqq3OqDiYhlGr-s/view"},
+		{"name": "The Bad Guys 2 (2025)", "url": "https://drive.google.com/file/d/17n4vyhsm2tiR3M8M61hsN3AT6FaQetX9/view"},
+		{"name": "Avengers: Age of Ultron (2015)", "url": "https://drive.google.com/file/d/1RX9OwNju-DhN5pwDyDhgM_lL399xZCap/view"}
 	],
 	"descriptions": [
 		"A gamer's hub for all things internet.",
@@ -575,6 +578,7 @@
 		"When you don't want to work on class work!"
 	]
 }
+
 
 
 
