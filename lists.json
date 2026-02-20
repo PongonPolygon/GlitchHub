@@ -318,7 +318,9 @@
 		{"name": "WorldGuessr", "url": "https://www.worldguessr.com"},
 		{"name": "Do NOT Take This Cat Home", "url": "https://kdata1.com/5000/2025/DoNOTTakeThisCatHome/"},
 		{"name": "Webcam Toy", "url": "https://webcamtoy.com/"},
-		{"name": "TI-84 Plus CE", "url": "https://cryptodude3.vercel.app/ti84_latest.html/"}
+		{"name": "TI-84 Plus CE", "url": "https://cryptodude3.vercel.app/ti84_latest.html/"},
+		{"name": "Akinator", "url": "https://en.akinator.com"},
+		{"name": "Exhibit of Sorrows", "url": "https://html-classic.itch.zone/html/14611877/index.html"}
 	],
 	"watch": [
 		{"name": "South Park", "url": "https://drive.google.com/drive/u/0/mobile/folders/1w3o_qE2iwsj6XbA42mpGDGLX0Atgnc9k"},
@@ -544,7 +546,8 @@
 		{"name": "Anaconda (2025)", "url": "https://drive.google.com/file/d/1e6WxaBMG5Uz-7oR-RNqq3OqDiYhlGr-s/view"},
 		{"name": "The Bad Guys 2 (2025)", "url": "https://drive.google.com/file/d/17n4vyhsm2tiR3M8M61hsN3AT6FaQetX9/view"},
 		{"name": "Avengers: Age of Ultron (2015)", "url": "https://drive.google.com/file/d/1RX9OwNju-DhN5pwDyDhgM_lL399xZCap/view"},
-		{"name": "Klaus (2019)", "url": "https://drive.google.com/file/d/1JKqgB1MNLYN2q6ZrYMLUHVdB4MCeFLA4/view"}
+		{"name": "Klaus (2019)", "url": "https://drive.google.com/file/d/1JKqgB1MNLYN2q6ZrYMLUHVdB4MCeFLA4/view"},
+		{"name": "Help! (1965)", "url": "https://dn721805.ca.archive.org/0/items/help_20201109/Help%21.mp4"}
 	],
 	"descriptions": [
 		"A gamer's hub for all things internet.",
@@ -579,6 +582,7 @@
 		"When you don't want to work on class work!"
 	]
 }
+
 
 
 
