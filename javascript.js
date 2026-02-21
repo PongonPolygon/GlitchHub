@@ -257,6 +257,9 @@ async function loadLinks() {
             
             const query = searchBar.value;
             
+            let movies = false;
+            let shows = false;
+            
             // loop throug all the containers
             searchableContainers.forEach(container => {
                 if (!container) return;
@@ -264,33 +267,73 @@ async function loadLinks() {
                 const links = container.getElementsByTagName("a");
                 
                 for (let link of links) {
-                const is18 = link.classList.contains("18");
-                const text = link.textContent;
-                const href = normalize(link.getAttribute("href"));
+                    const is18 = link.classList.contains("18");
+                    const text = link.textContent;
+                    const href = normalize(link.getAttribute("href"));
 
-                // determine if link should be visible
-                let visible = true;
+                    // determine if link should be visible
+                    let visible = true;
 
-                if (is18 && enabled) {
-                    visible = false;
-                } else if (!matchesSearch(query, text, href)) {
-                    visible = false;
+                    if (is18 && enabled) {
+                        visible = false;
+                    } else if (!matchesSearch(query, text, href)) {
+                        visible = false;
+                    }
+
+                    // set visibility
+                    link.style.display = visible ? "" : "none";
+                    if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
+                        link.nextElementSibling.style.display = visible ? "" : "none";
+                    }
+
+                    // count only visible links
+                    if (visible) {
+                        if (container === document.getElementById("play")) play++;
+                        else if (container === document.getElementById("watch")) watch++;
+                    }
+                    
+                    if (visible) {
+                        if (link.parentElement.id == "movie") {
+                            movies = "true";
+                        } else if (link.parentElement.id == "show") {
+                            shows = "true";
+                        }
+                    }
                 }
-
-                // set visibility
-                link.style.display = visible ? "" : "none";
-                if (link.nextElementSibling && link.nextElementSibling.tagName === "BR") {
-                    link.nextElementSibling.style.display = visible ? "" : "none";
-                }
-
-                // count only visible links
-                if (visible) {
-                    if (container === document.getElementById("play")) play++;
-                    else if (container === document.getElementById("watch")) watch++;
-                }
-            }
 
             });
+            
+            // hide sections
+            if (movies) {
+                document.getElementById("movieOuter").style.display = "block";
+                document.getElementById("watchLine").style.display = "block";
+            } else {
+                document.getElementById("movieOuter").style.display = "none";
+                document.getElementById("watchLine").style.display = "none";
+            }
+            
+            if (shows) {
+                document.getElementById("showOuter").style.display = "block";
+            } else {
+                document.getElementById("showOuter").style.display = "none";
+            }
+            
+            if (!shows && movies) {
+                document.getElementById("watchLine").style.display = "none";
+            }
+            
+            if (!shows && !movies) {
+                document.getElementById("noResultsWatch").style.display = "block";
+            } else {
+                document.getElementById("noResultsWatch").style.display = "none";
+            }
+            
+            if (play > 0) {
+                document.getElementById("noResultsPlay").style.display = "none";
+            } else {
+                document.getElementById("noResultsPlay").style.display = "block";
+            }
+            
             
             // update count for titles
             document.getElementById("playCount").textContent = "Games (" + play + ")";
@@ -365,53 +408,55 @@ async function loadLinks() {
         }
 
         document.querySelectorAll("a").forEach((link) => {
-            if (link.querySelector("img")) return;
+            if (!link.classList.contains("embed")) {
+                if (link.querySelector("img")) return;
 
-            let hostname, origin;
+                let hostname, origin;
 
-            try {
-                const url = new URL(link.href);
-                hostname = url.hostname;
-                origin = url.origin;
-            } catch {
-                return;
+                try {
+                    const url = new URL(link.href);
+                    hostname = url.hostname;
+                    origin = url.origin;
+                } catch {
+                    return;
+                }
+
+
+                let faviconURL;
+
+                if (faviconCache.has(hostname)) {
+                    faviconURL = faviconCache.get(hostname);
+                } else {
+                    faviconURL = `https://www.google.com/s2/favicons?sz=32&domain_url=${encodeURIComponent(origin)}`;
+                    faviconCache.set(hostname, faviconURL);
+                    saveCache();
+                }
+
+                // create image but DO NOT attach yet
+                const icon = new Image();
+
+                icon.alt = hostname;
+                icon.style.width = "1em";
+                icon.style.height = "1em";
+                icon.style.verticalAlign = "middle";
+                icon.style.marginTop = "-.4em";
+                icon.style.marginRight = "6px";
+                icon.style.borderRadius = "25%";
+
+                // only insert after load
+                icon.addEventListener("load", () => {
+                    link.prepend(icon);
+                });
+
+                // optional: if favicon fails, remove cache entry so it can retry later
+                icon.addEventListener("error", () => {
+                    faviconCache.delete(hostname);
+                    saveCache();
+                });
+
+                // start loading AFTER listeners are attached
+                icon.src = faviconURL;
             }
-
-
-            let faviconURL;
-
-            if (faviconCache.has(hostname)) {
-                faviconURL = faviconCache.get(hostname);
-            } else {
-                faviconURL = `https://www.google.com/s2/favicons?sz=32&domain_url=${encodeURIComponent(origin)}`;
-                faviconCache.set(hostname, faviconURL);
-                saveCache();
-            }
-
-            // create image but DO NOT attach yet
-            const icon = new Image();
-
-            icon.alt = hostname;
-            icon.style.width = "1em";
-            icon.style.height = "1em";
-            icon.style.verticalAlign = "middle";
-            icon.style.marginTop = "-.4em";
-            icon.style.marginRight = "6px";
-            icon.style.borderRadius = "25%";
-
-            // only insert after load
-            icon.addEventListener("load", () => {
-                link.prepend(icon);
-            });
-
-            // optional: if favicon fails, remove cache entry so it can retry later
-            icon.addEventListener("error", () => {
-                faviconCache.delete(hostname);
-                saveCache();
-            });
-
-            // start loading AFTER listeners are attached
-            icon.src = faviconURL;
         });
 
 
