@@ -15,9 +15,9 @@ requestAnimationFrame(loop);
 // update frame
 function update(delta) { // actual stuff
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    moveCameraWithSmoothing();
-    zoomWithSmoothing();
-    checkKeys();
+    moveCameraWithSmoothing(delta);
+    zoomWithSmoothing(delta);
+    checkKeys(delta);
     drawObjects();
     drawFPS(delta);
     drawCameraPos();
@@ -71,10 +71,10 @@ function drawCameraPos() {
 //testing camera move
 const keysPressed = {};
 document.addEventListener("keydown", (event) => {
-    keysPressed[event.key] = true;
+    keysPressed[event.code] = true;
 });
 document.addEventListener("keyup", (event) => {
-    delete keysPressed[event.key];
+    delete keysPressed[event.code];
 });
 
 
@@ -83,19 +83,13 @@ document.addEventListener("wheel", (event) => {
 
 });
 
-function checkKeys() {
-    if (keysPressed.ArrowRight) {
-        camera.xTarget += 20;
-    }
-    if (keysPressed.ArrowLeft) {
-        camera.xTarget -= 20;
-    }
-    if (keysPressed.ArrowUp) {
-        camera.yTarget -= 20;
-    }
-    if (keysPressed.ArrowDown) {
-        camera.yTarget += 20;
-    }
+function checkKeys(delta) {
+    const speed = keysPressed.ShiftLeft ? 5000 : 1000;
+    
+    if (keysPressed.KeyD) camera.xTarget += speed * delta;
+    if (keysPressed.KeyA) camera.xTarget -= speed * delta;
+    if (keysPressed.KeyW) camera.yTarget -= speed * delta;
+    if (keysPressed.KeyS) camera.yTarget += speed * delta;
 }
 
 let camera = {
@@ -109,24 +103,35 @@ let camera = {
     zoomSmoothing: 4
 };
 
-function moveCameraWithSmoothing() {
-    camera.x += (camera.xTarget - camera.x)/camera.smoothing;
-    camera.y += (camera.yTarget - camera.y)/camera.smoothing;
+function moveCameraWithSmoothing(delta) {
+    const t = 1 - Math.exp(-camera.smoothing * delta);
+    camera.x += (camera.xTarget - camera.x) * t;
+    camera.y += (camera.yTarget - camera.y) * t;
 }
 
-function zoomWithSmoothing() {
-    camera.zoom += (camera.targetZoom - camera.zoom)/camera.zoomSmoothing;
+function zoomWithSmoothing(delta) {
+    const t = 1 - Math.exp(-camera.zoomSmoothing * delta);
+    camera.zoom += (camera.targetZoom - camera.zoom) * t;
 }
 
 let objects = [];
 // draw objects
 function drawObjects() {
     for (const object of objects) {
+        object.type = object.type || "rect";
         if (object.type === "rect") {
+            object.x = object.x || 0;
+            object.y = object.y || 0;
+            object.ySize = object.ySize || 10;
+            object.xSize = object.xSize || 10;
+            object.color = object.color || "black";
+            object.strokeType = object.strokeType || "none";
+            object.strokeThickness = object.strokeThickness || 5;
+            object.rotation = object.rotation || 0;
             // center the rect
             const PosFixed = {
-                x: object.xPosition - object.xSize / 2,
-                y: object.yPosition - object.ySize / 2
+                x: object.x - object.xSize / 2,
+                y: object.y - object.ySize / 2
             };
 
             // calculate screen position relative to camera and zoom
@@ -134,17 +139,17 @@ function drawObjects() {
             const screenY = (PosFixed.y - camera.y) * camera.zoom + canvas.height / 2;
 
             ctx.fillStyle = object.color;
-            ctx.strokeStyle = object.outlineColor;
-            ctx.lineWidth = object.outlineThickness;
+            ctx.strokeStyle = object.strokeColor;
+            ctx.lineWidth = object.strokeThickness*camera.zoom;
             
-            if (object.outlineMode == "none") {
+            if (object.strokeType == "none") {
                 ctx.fillRect(
                     screenX,
                     screenY,
                     object.xSize * camera.zoom,
                     object.ySize * camera.zoom
                 );
-            } else if (object.outlineMode == "bottom") {
+            } else if (object.strokeType == "bottom") {
                 ctx.strokeRect(
                     screenX,
                     screenY,
@@ -157,7 +162,7 @@ function drawObjects() {
                     object.xSize * camera.zoom,
                     object.ySize * camera.zoom
                 );
-            } else if (object.outlineMode == "top") {
+            } else if (object.strokeType == "top") {
                 ctx.fillRect(
                     screenX,
                     screenY,
@@ -176,29 +181,112 @@ function drawObjects() {
 }
 
 // function to add an object
-function addObject(type, xPosition, yPosition, xSize, ySize, rotation, id, color, outlineMode, outlineThicknes, outlineColor) {
-    let objinfo = {
-        type: type,
-        xPosition: xPosition,
-        yPosition: yPosition,
-        xSize: xSize,
-        ySize: ySize,
-        rotation: rotation,
-        color: color,
-        outlineMode: outlineMode || "none",
-        outlineColor: outlineColor || "black",
-        outlineThickness: outlineThicknes || "0",
-        id: id
-    };
+function addObject(list) {
+    let objinfo = {};
+    for (const [key, value] of Object.entries(list)) {
+        objinfo[key] = value;
+    }
     
     objects.push(objinfo);
 }
 
-function getReturnedQuardsToMiddle(xSize, ySize) {
-    return {
-        middleX: xSize/2,
-        middleY: ySize/2
-    };
-}
+addObject(
+    {
+        type: "rect",
+        x: 0,
+        y: 0,
+        xSize: 100,
+        ySize: 100,
+        rotation: 0,
+        color: "#555555",
+        strokeColor: "#000000",
+        strokeThickness: 5,
+        strokeType: "top"
+    }
+);
 
-addObject("rect", 0, 0, 250, 250, 0, "OBJECT", "#FFFFFF", "top", "5", "#000000");
+addObject(
+    {
+        type: "rect",
+        x: 100,
+        y: 100,
+        xSize: 100,
+        ySize: 100,
+        rotation: 0,
+        color: "#555555",
+        strokeColor: "#000000",
+        strokeThickness: 5,
+        strokeType: "top"
+    }
+);
+
+addObject(
+    {
+        type: "rect",
+        x: 200,
+        y: 100,
+        xSize: 100,
+        ySize: 100,
+        rotation: 0,
+        color: "#555555",
+        strokeColor: "#000000",
+        strokeThickness: 5,
+        strokeType: "top"
+    }
+);
+addObject(
+    {
+        type: "rect",
+        x: 300,
+        y: 100,
+        xSize: 100,
+        ySize: 100,
+        rotation: 0,
+        color: "#555555",
+        strokeColor: "#000000",
+        strokeThickness: 5,
+        strokeType: "top"
+    }
+);
+addObject(
+    {
+        type: "rect",
+        x: 400,
+        y: 0,
+        xSize: 100,
+        ySize: 100,
+        rotation: 0,
+        color: "#555555",
+        strokeColor: "#000000",
+        strokeThickness: 5,
+        strokeType: "top"
+    }
+);
+addObject(
+    {
+        type: "rect",
+        x: 300,
+        y: -200,
+        xSize: 100,
+        ySize: 100,
+        rotation: 0,
+        color: "#555555",
+        strokeColor: "#000000",
+        strokeThickness: 5,
+        strokeType: "top"
+    }
+);
+addObject(
+    {
+        type: "rect",
+        x: 100,
+        y: -200,
+        xSize: 100,
+        ySize: 100,
+        rotation: 0,
+        color: "#555555",
+        strokeColor: "#000000",
+        strokeThickness: 5,
+        strokeType: "top"
+    }
+);
