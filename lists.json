@@ -321,7 +321,8 @@
 		{"name": "TI-84 Plus CE", "url": "https://cryptodude3.vercel.app/ti84_latest.html/"},
 		{"name": "Akinator", "url": "https://en.akinator.com"},
 		{"name": "Exhibit of Sorrows", "url": "https://html-classic.itch.zone/html/14611877/index.html"},
-		{"name": "Flappy Plane", "url": "https://hwzone.co.il/flappyplane/"}
+		{"name": "Flappy Plane", "url": "https://hwzone.co.il/flappyplane/"},
+		{"name": "Wacky Flip", "url": "https://game.azgame.io/wacky-flip/"}
 	],
 	"watch": [
 		{"name": "South Park", "url": "https://drive.google.com/drive/u/0/mobile/folders/1w3o_qE2iwsj6XbA42mpGDGLX0Atgnc9k", "type": "show"},
@@ -583,4 +584,5 @@
 		"When you don't want to work on class work!"
 	]
 }
+
 
