@@ -323,7 +323,11 @@
 		{"name": "Exhibit of Sorrows", "url": "https://html-classic.itch.zone/html/14611877/index.html"},
 		{"name": "Flappy Plane", "url": "https://hwzone.co.il/flappyplane/"},
 		{"name": "Wacky Flip", "url": "https://game.azgame.io/wacky-flip/"},
-		{"name": "I See You", "url": "https://pongonpolygon.github.io/glitchhub_games/iseeyou/"}
+		{"name": "I See You", "url": "https://pongonpolygon.github.io/glitchhub_games/iseeyou/"},
+		{"name": "Age of War", "url": "https://ageofwargame.io/age-of-war.embedgame"},
+		{"name": "Age of War 2", "url": "https://www.archive.play-games.com/emulators/avm2/?swf=ageofwar/2.swf&name=Age%20of%20War%202"},
+		{"name": "Army of Ages", "url": "https://f.kbhgames.com/RS/game.php?r=//f.kbhgames.com/2018/swf/armyofages.swf"},
+		{"name": "Age of War: Prehistoric", "url": "https://play-games.com/files/html5/AgeOfWarPrehistoric/v1/index.html"}
 	],
 	"watch": [
 		{"name": "South Park", "url": "https://drive.google.com/drive/u/0/mobile/folders/1w3o_qE2iwsj6XbA42mpGDGLX0Atgnc9k", "type": "show"},
@@ -585,6 +589,7 @@
 		"When you don't want to work on class work!"
 	]
 }
+
 
 
 
