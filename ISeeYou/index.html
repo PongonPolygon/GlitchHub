@@ -117,7 +117,7 @@
                 const delta = (currentTime - lastTime) / 1000;
                 lastTime = currentTime;
             
-                const speed = 8; // higher = snappier
+                const speed = 20;
             
                 leftPos.currentx += (leftPos.x - leftPos.currentx) * speed * delta;
                 leftPos.currenty += (leftPos.y - leftPos.currenty) * speed * delta;
