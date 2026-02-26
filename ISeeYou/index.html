@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>eyes</title>
+    </head>
+    <body style="
+        background-color: gray;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    ">
+
+        <div id="eyes" style="display: flex; gap: 50px;">
+
+            <!-- Left Eye -->
+            <div id="leftEye" style="
+                border: 4px solid black;
+                height: 100px;
+                width: 100px;
+                background: white;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            ">
+                <div id="leftPupil" style="
+                    height: 50px;
+                    width: 50px;
+                    background: black;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 25px;
+                    left: 25px;
+                "></div>
+            </div>
+
+            <!-- Right Eye -->
+            <div id="rightEye" style="
+                border: 4px solid black;
+                height: 100px;
+                width: 100px;
+                background: white;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                overflow: hidden;
+            ">
+                <div id="rightPupil" style="
+                    height: 50px;
+                    width: 50px;
+                    background: black;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 25px;
+                    left: 25px;
+                "></div>
+            </div>
+        </div>
+        <script>
+            const leftEye = document.getElementById("leftEye");
+            const rightEye = document.getElementById("rightEye");
+            const leftPupil = document.getElementById("leftPupil");
+            const rightPupil = document.getElementById("rightPupil");
+
+            let leftPos = {
+                x: 25,
+                y: 25,
+                currentx: 25,
+                currenty: 25
+            };
+
+            let rightPos = {
+                x: 25,
+                y: 25,
+                currentx: 25,
+                currenty: 25
+            };
+
+            document.addEventListener("mousemove", (event) => {
+                movePupil(leftEye, leftPupil, event, leftPos);
+                movePupil(rightEye, rightPupil, event, rightPos);
+            });
+
+            function movePupil(eye, pupil, event, vari) {
+                const rect = eye.getBoundingClientRect();
+
+                const eyeCenterX = rect.left + rect.width / 2;
+                const eyeCenterY = rect.top + rect.height / 2;
+
+                let dx = event.clientX - eyeCenterX;
+                let dy = event.clientY - eyeCenterY;
+
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                const maxRadius = 25; // (eyeSize - pupilSize) / 2
+
+                if (distance > maxRadius) {
+                    const angle = Math.atan2(dy, dx);
+                    dx = Math.cos(angle) * maxRadius;
+                    dy = Math.sin(angle) * maxRadius;
+                }
+
+                vari.x = 25 + dx;
+                vari.y = 25 + dy;
+            }
+
+            let lastTime = 0;
+
+            function update(currentTime) {
+                const delta = (currentTime - lastTime)/1000;
+
+                leftPos.currentx += (leftPos.x - leftPos.currentx)/4*delta;
+                leftPos.currenty += (leftPos.y - leftPos.currenty)/4*delta;
+
+                leftPupil.style.left = leftPos.currentx + "px";
+                leftPupil.style.top = leftPos.currenty + "px";
+
+                rightPos.currentx += (rightPos.x - rightPos.currentx)/4*delta;
+                rightPos.currenty += (rightPos.y - rightPos.currenty)/4*delta;
+
+                rightPupil.style.left = rightPos.currentx + "px";
+                rightPupil.style.top = rightPos.currenty + "px";
+
+                requestAnimationFrame(update);
+            }
+
+            requestAnimationFrame(update);
+        </script>
+    </body>
+</html>
