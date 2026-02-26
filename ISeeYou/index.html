@@ -110,23 +110,27 @@
                 vari.y = 25 + dy;
             }
 
-            let lastTime = 0;
+            let lastTime = performance.now();
 
             function update(currentTime) {
-                const delta = (currentTime - lastTime)/1000;
-
-                leftPos.currentx += (leftPos.x - leftPos.currentx)/4*delta;
-                leftPos.currenty += (leftPos.y - leftPos.currenty)/4*delta;
-
+            
+                const delta = (currentTime - lastTime) / 1000;
+                lastTime = currentTime;
+            
+                const speed = 8; // higher = snappier
+            
+                leftPos.currentx += (leftPos.x - leftPos.currentx) * speed * delta;
+                leftPos.currenty += (leftPos.y - leftPos.currenty) * speed * delta;
+            
+                rightPos.currentx += (rightPos.x - rightPos.currentx) * speed * delta;
+                rightPos.currenty += (rightPos.y - rightPos.currenty) * speed * delta;
+            
                 leftPupil.style.left = leftPos.currentx + "px";
                 leftPupil.style.top = leftPos.currenty + "px";
-
-                rightPos.currentx += (rightPos.x - rightPos.currentx)/4*delta;
-                rightPos.currenty += (rightPos.y - rightPos.currenty)/4*delta;
-
+            
                 rightPupil.style.left = rightPos.currentx + "px";
                 rightPupil.style.top = rightPos.currenty + "px";
-
+            
                 requestAnimationFrame(update);
             }
 
