@@ -76,8 +76,8 @@
 		{"name": "Super Mario World", "url": "https://nb-ga.github.io/games-site/emulation/SNES/super-mario-world/index.html"},
 		{"name": "Super Mario World 2", "url": "https://nb-ga.github.io/games-site/emulation/SNES/super-mario-world-two/index.html"},
 		{"name": "Super Mario Kart", "url": "https://nb-ga.github.io/games-site/emulation/SNES/super-mario-kart/index.html"},
-		{"name": "The Legend of Zelda: A Link to the Past", "url": "https://nb-ga.github.io/games-site/emulation/SNES/legend-of-zelda-link-to-the-past/index.html"},
-		{"name": "The Legend of Zelda: The Minish Cap", "url": "https://nb-ga.github.io/games-site/emulation/GBA/legend-of-zelda-minish-cap/index.html"},
+		{"name": "The Legend of Zelda, A Link to the Past", "url": "https://nb-ga.github.io/games-site/emulation/SNES/legend-of-zelda-link-to-the-past/index.html"},
+		{"name": "The Legend of Zelda, The Minish Cap", "url": "https://nb-ga.github.io/games-site/emulation/GBA/legend-of-zelda-minish-cap/index.html"},
 		{"name": "Pokemon Fire Red", "url": "https://nb-ga.github.io/games-site/emulation/GBA/pokemon-fire-red/index.html"},
 		{"name": "Pokemon Leaf Green", "url": "https://nb-ga.github.io/games-site/emulation/GBA/pokemon-leaf-green/index.html"},
 		{"name": "Pokemon Ruby", "url": "https://nb-ga.github.io/games-site/emulation/GBA/pokemon-ruby/index.html"},
@@ -581,7 +581,28 @@
 		{"name": "She-Ra and the Princesses of Power S2", "url": "https://drive.google.com/drive/folders/13ukP0L8nJx7mX9HpNzxVwC___-C4Q9YW", "type": "show"},
 		{"name": "She-Ra and the Princesses of Power S3", "url": "https://drive.google.com/drive/folders/1HFuNwR20H_alml20AA4L9plJiFwsuAc7", "type": "show"},
 		{"name": "She-Ra and the Princesses of Power S4", "url": "https://drive.google.com/drive/folders/1M_Ol1o2O6wb9hO7wiiT8mQF7zbyWIMQq", "type": "show"},
-		{"name": "She-Ra and the Princesses of Power S5", "url": "https://drive.google.com/drive/folders/1-2joes_fTZcSZWfD6yw82i9LVuvy_YNq", "type": "show"}
+		{"name": "She-Ra and the Princesses of Power S5", "url": "https://drive.google.com/drive/folders/1-2joes_fTZcSZWfD6yw82i9LVuvy_YNq", "type": "show"},
+		{"name": "Mulan (1998)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1998%20-%20Mulan.mp4", "type": "movie"},
+		{"name": "The Jungle Book (1967)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1967%20-%20The%20Jungle%20Book.mp4", "type": "movie"},
+		{"name": "Robin Hood (1973)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1973%20-%20Robin%20Hood.mp4", "type": "movie"},
+		{"name": "The Little Mermaid (1989)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1989%20-%20The%20Little%20Mermaid.mp4", "type": "movie"},
+		{"name": "The Great Mouse Detective (1986)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1986%20-%20The%20Great%20Mouse%20Detective.mp4", "type": "movie"},
+		{"name": "DuckTales the Movie: Treasure of the Lost Lamp (1990)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1990%20-%20Ducktales%20The%20Movie%20-%20Treasure%20of%20the%20Lost%20Lamp.mp4", "type": "movie"},
+		{"name": "A Goofy Movie (1995)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1995%20-%20A%20Goofy%20Movie.mp4", "type": "movie"},
+		{"name": "Beauty and the Beast (1991)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1991%20-%20Beauty%20and%20the%20Beast.mp4", "type": "movie"},
+		{"name": "Pocahontas (1995)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1995%20-%20Pocahontas.mp4", "type": "movie"},
+		{"name": "Pocahontas II: Journey to a New World (1998)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1998%20-%20Pocahontas%20II%20-%20Journey%20to%20a%20New%20World.mp4", "type": "movie"},
+		{"name": "James and the Giant Peach (1996)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1996%20-%20James%20and%20the%20Giant%20Peach.mp4", "type": "movie"},
+		{"name": "Aladdin and the King of Thieves (1996)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1996%20-%20Aladdin%20and%20the%20King%20of%20Thieves.mp4", "type": "movie"},
+		{"name": "Hercules (1997)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1997%20-%20Hercules.mp4", "type": "movie"},
+		{"name": "The Lion King (1994)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1994%20-%20The%20Lion%20King.mp4", "type": "movie"},
+		{"name": "The Lion King II: Simba's Pride (1998)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1998%20-%20The%20Lion%20King%202%20-%20Simba%27s%20Pride.mp4", "type": "movie"},
+		{"name": "Alice in Wonderland (1951)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1951%20-%20Alice%20in%20Wonderland.mp4", "type": "movie"},
+		{"name": "Peter Pan (1953)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1953%20-%20Peter%20Pan.mp4", "type": "movie"},
+		{"name": "Sleeping Beauty (1959)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1959%20-%20Sleeping%20Beauty.mp4", "type": "movie"},
+		{"name": "One Hundred and One Dalmatians (1961)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1961%20-%20101%20Dalmatians.mp4", "type": "movie"},
+		{"name": "Mary Poppins (1964)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1964%20-%20Mary%20Poppins.mp4", "type": "movie"},
+		{"name": "Mirai (2018)", "url": "https://dn721804.ca.archive.org/0/items/mirai-2018-1080p/Mirai.2018.1080p.BluRay.x264-%5BYTS.AM%5D.mp4", "type": "movie"}
 	],
 	"descriptions": [
 		"A gamer's hub for all things internet.",
@@ -617,4 +638,3 @@
 		"IF YOU HAVE JJK S3 TELL ME IM AT GUNPOINT"
 	]
 }
-
