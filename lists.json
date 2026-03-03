@@ -76,8 +76,8 @@
 		{"name": "Super Mario World", "url": "https://nb-ga.github.io/games-site/emulation/SNES/super-mario-world/index.html"},
 		{"name": "Super Mario World 2", "url": "https://nb-ga.github.io/games-site/emulation/SNES/super-mario-world-two/index.html"},
 		{"name": "Super Mario Kart", "url": "https://nb-ga.github.io/games-site/emulation/SNES/super-mario-kart/index.html"},
-		{"name": "The Legend of Zelda, A Link to the Past", "url": "https://nb-ga.github.io/games-site/emulation/SNES/legend-of-zelda-link-to-the-past/index.html"},
-		{"name": "The Legend of Zelda, The Minish Cap", "url": "https://nb-ga.github.io/games-site/emulation/GBA/legend-of-zelda-minish-cap/index.html"},
+		{"name": "The Legend of Zelda: A Link to the Past", "url": "https://nb-ga.github.io/games-site/emulation/SNES/legend-of-zelda-link-to-the-past/index.html"},
+		{"name": "The Legend of Zelda: The Minish Cap", "url": "https://nb-ga.github.io/games-site/emulation/GBA/legend-of-zelda-minish-cap/index.html"},
 		{"name": "Pokemon Fire Red", "url": "https://nb-ga.github.io/games-site/emulation/GBA/pokemon-fire-red/index.html"},
 		{"name": "Pokemon Leaf Green", "url": "https://nb-ga.github.io/games-site/emulation/GBA/pokemon-leaf-green/index.html"},
 		{"name": "Pokemon Ruby", "url": "https://nb-ga.github.io/games-site/emulation/GBA/pokemon-ruby/index.html"},
@@ -617,3 +617,4 @@
 		"IF YOU HAVE JJK S3 TELL ME IM AT GUNPOINT"
 	]
 }
+
