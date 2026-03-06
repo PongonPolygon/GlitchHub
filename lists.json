@@ -604,7 +604,9 @@
 		{"name": "Sleeping Beauty (1959)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1959%20-%20Sleeping%20Beauty.mp4", "type": "movie"},
 		{"name": "One Hundred and One Dalmatians (1961)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1961%20-%20101%20Dalmatians.mp4", "type": "movie"},
 		{"name": "Mary Poppins (1964)", "url": "https://dn720403.ca.archive.org/0/items/schoolproject2_20200406/1964%20-%20Mary%20Poppins.mp4", "type": "movie"},
-		{"name": "Mirai (2018)", "url": "https://dn721804.ca.archive.org/0/items/mirai-2018-1080p/Mirai.2018.1080p.BluRay.x264-%5BYTS.AM%5D.mp4", "type": "movie"}
+		{"name": "Mirai (2018)", "url": "https://dn721804.ca.archive.org/0/items/mirai-2018-1080p/Mirai.2018.1080p.BluRay.x264-%5BYTS.AM%5D.mp4", "type": "movie"},
+		{"name": "The Black Phone (2021)", "url": "https://ok.ru/videoembed/9948173765189", "type": "movie"},
+		{"name": "The Black Phone 2 (2025)", "url": "https://ok.ru/videoembed/11167711627874", "type": "movie"}
 	],
 	"descriptions": [
 		"A gamer's hub for all things internet.",
@@ -640,5 +642,6 @@
 		"IF YOU HAVE JJK S3 TELL ME IM AT GUNPOINT"
 	]
 }
+
 
 
