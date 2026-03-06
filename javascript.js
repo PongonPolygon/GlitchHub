@@ -230,7 +230,7 @@ async function loadLinks() {
         //normalize string for searching
         function normalize(str) {
             str = String(str ?? "");
-            const base = str.toLowerCase().replace(/[':.,]/g, "").trim();
+            const base = str.toLowerCase().replace(/[()':., ]/g, "").trim();
 
             return [
                 base,
@@ -502,3 +502,4 @@ async function loadLinks() {
 }
 
 loadLinks();
+
