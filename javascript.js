@@ -138,6 +138,22 @@ function handleScroll() {
 window.addEventListener("scroll", handleScroll);
 let descriptions = [];
 
+// form buttons
+const gameButton = document.getElementById("gameForm");
+const watchButton = document.getElementById("watchForm");
+const gameForm = document.getElementById("gameFormActual");
+const watchForm = document.getElementById("watchFormActual");
+
+gameButton.addEventListener("click", function() {
+    watchForm.style.display = "none";
+    gameForm.style.display = "inline";
+});
+
+watchButton.addEventListener("click", function() {
+    watchForm.style.display = "inline";
+    gameForm.style.display = "none";
+});
+
 // get links and add them
 async function loadLinks() {
     try {
@@ -502,4 +518,3 @@ async function loadLinks() {
 }
 
 loadLinks();
-
