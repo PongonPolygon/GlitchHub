@@ -169,22 +169,24 @@ async function loadLinks() {
 
                 data[listName].forEach(item => {
                     const link = document.createElement("a");
-                    link.href = item.url;
-                    link.textContent = item.name;
-
-                    let addtype = false;
-                    if (item.type) {
-                        addtype = true;
-                    }
-                    if (addtype) {
-                        document.getElementById(item.type).appendChild(link);
-                        document.getElementById(item.type).appendChild(document.createElement("br"));
-                    } else {
-                        container.appendChild(link);
-                        container.appendChild(document.createElement("br"));
-                    }
-                    if (debug) {
-                        console.log("Added '" + link.textContent + "' to " + listName + " section.");
+                    if (!item.hidden) {
+                        link.href = item.url;
+                        link.textContent = item.name;
+    
+                        let addtype = false;
+                        if (item.type) {
+                            addtype = true;
+                        }
+                        if (addtype) {
+                            document.getElementById(item.type).appendChild(link);
+                            document.getElementById(item.type).appendChild(document.createElement("br"));
+                        } else {
+                            container.appendChild(link);
+                            container.appendChild(document.createElement("br"));
+                        }
+                        if (debug) {
+                            console.log("Added '" + link.textContent + "' to " + listName + " section.");
+                        }
                     }
                 });
             } else {
