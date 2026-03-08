@@ -42,7 +42,7 @@
 				align-items: center;
 				flex-direction: column;
 				justify-content: center;
-				z-index: 99;
+				z-index: 10;
 				font-size: 30px;
 			}
 			.noscript {
@@ -147,6 +147,52 @@
 			<h1>Loading...</h1>
 		</div>
 		
+		<!-- discord popup -->
+		<div id="discordPopup" style="position: fixed; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; display: none;">
+			<div style="width: 50%; height: 75%; background-color: rgba(64, 64, 112, 1); border-radius: 50px; z-index: 60; background-image: url(background.png); text-align: center; border: 2px solid white;">
+				<div style="position: relative; display: inline-block;">
+					<p style="font-size: 30px; -webkit-text-stroke: 10px black;"><strong>We now have a Discord Server!</strong></p>
+					<p style="font-size: 30px; position: absolute; top: 0; left: 0;"><strong>We now have a Discord Server!</strong></p>
+				</div>
+				<br>
+				<p style="line-height: 1.5">
+					Now that Glitch<span style="color: #00ff9c">Hub</span> has been
+					gaining some popularity,  I decided that there is no better way to get
+					everyone together than a <span style="color: #80dbff;"><strong>Discord Server</strong></span>!
+				</p>
+				<iframe title="discord" src="https://discord.com/widget?id=1480007993700647088&theme=dark" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" style="width: 90%; height: 50%;"></iframe>
+				<br>
+				<br>
+				<button name="discordClose" id="discordClose" style="width: 20%; height: 5%; font-family: 'Press Start 2P'; background-color: #404070; color: #ffffff">Close</button>
+			</div>
+		</div>
+		<script>
+			const popup = document.getElementById("discordPopup");
+			
+			function setCookie(name, value) {
+				const expires = new Date(Date.now() + 3153600000*864e5).toUTCString();
+				document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+			}
+			//get cookies
+			function getCookie(name) {
+				return document.cookie.split("; ").find(row => row.startsWith(name + "="))?.split("=")[1];
+			}
+			
+			const used = getCookie("discordPopup") || "false";
+			
+			console.log(used);
+			
+			if (used == "false") {
+				popup.style.display = "flex";
+			}
+			
+			document.getElementById("discordClose").addEventListener("click", function() {
+				document.getElementById("discordPopup").remove();
+				
+				setCookie("discordPopup", "true");
+			});
+		</script>
+		
 		<div id="main" style="display: none;">
 			<!-- title -->
 			<div id="title" class="heading" style="top: -20px;">
@@ -225,8 +271,9 @@
 						<div class="clean-line"></div>
 						<!-- pages -->
 						<span>
-							<a href="https://pongonpolygon.github.io">Home Page</a>
+							<a href="https://discord.gg/eqmpS8MMbJ">Discord Server</a>
 							<a href="https://github.com/PongonPolygon/glitchhub">Source Code</a>
+							<!-- https://discord.gg/eqmpS8MMbJ -->
 						</span>
 						<!-- filter -->
 						<div class="checkbox" style="display: none;">
