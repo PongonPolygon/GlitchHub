@@ -147,11 +147,11 @@
 			<h1>Loading...</h1>
 		</div>
 		
-		<!-- discord popup -->
-		<div id="discordPopup" style="position: fixed; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; display: none; z-index: 11;">
-			<div style="width: 50%; height: 75%; background-color: rgba(64, 64, 112, 1); border-radius: 50px; z-index: 60; background-image: url(background.png); text-align: center; border: 2px solid white; padding: 30px; box-sizing: border-box; overflow: auto;">
+		<!-- popup -->
+		<div id="popup" style="position: fixed; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; display: none; z-index: 11;">
+			<div style="width: 75vw; height: 30vw; background-color: rgba(64, 64, 112, 1); border-radius: 50px; z-index: 60; background-image: url(background.png); text-align: center; border: 2px solid white; padding: 30px; box-sizing: border-box; overflow: auto;">
 				<div style="font-size: 1.6cqi; margin-top: -30px;; position: relative; display: inline-block;">
-					<p style="-webkit-text-stroke: 10px black;"><strong>We now have a Discord Server!</strong></p>
+					<p style="-webkit-text-stroke: 0.6cqi black;"><strong>We now have a Discord Server!</strong></p>
 					<p style="position: absolute; top: 0; left: 0;"><strong>We now have a <span style="color: #66c0ff">Discord Server!</span></strong></p>
 				</div>
 				<br>
@@ -160,12 +160,17 @@
 					gaining some popularity,  I decided that there is no better way to get
 					everyone together than a <span style="color: #66c0ff;"><strong>Discord Server</strong></span>!
 				</p>
-				<iframe title="discord" src="https://discord.com/widget?id=1480007993700647088&theme=dark" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" style="width: 90%; height: 50%; border: none;"></iframe>
-				<button name="discordClose" id="discordClose" style="width: 20%; height: 10%; font-family: 'Press Start 2P'; background-color: #404070; color: #ffffff; margin-top: 20px; font-size: 1cqi;">Close</button>
+				
+				<iframe title="discord" src="https://discord.com/widget?id=1480007993700647088&theme=dark" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" style="width: 70%; height: 50%; border: none;"></iframe>
+				<br>
+				
+				<!-- close button -->
+				<button name="close" id="close" style="width: 20%; height: 10%; font-family: 'Press Start 2P'; background-color: #404070; color: #ffffff; margin-top: 20px; font-size: 1cqi;">Close</button>
 			</div>
 		</div>
+		<!-- popup code -->
 		<script>
-			const popup = document.getElementById("discordPopup");
+			const popup = document.getElementById("popup");
 			
 			function setCookie(name, value) {
 				const expires = new Date(Date.now() + 3153600000*864e5).toUTCString();
@@ -184,8 +189,8 @@
 				popup.style.display = "flex";
 			}
 			
-			document.getElementById("discordClose").addEventListener("click", function() {
-				document.getElementById("discordPopup").remove();
+			document.getElementById("close").addEventListener("click", function() {
+				popup.remove();
 				
 				setCookie("discordPopup", "true");
 			});
@@ -250,8 +255,8 @@
 						<!-- forms -->
 						<div style="margin-top: -10px;">
 							<div id="recommend-body">
-								<button id="gameForm" name="gameForm" style="font-family: 'Press Start 2P'; background-color: #404070; color: #ffffff; width: 10vw; height: 30px;">Add to Play</button>
-								<button id="watchForm" name="watchForm" style="font-family: 'Press Start 2P'; background-color: #404070; color: #ffffff; width: 10vw; height: 30px;">Add to Watch</button>
+								<button id="gameForm" name="gameForm" style="font-family: 'Press Start 2P'; background-color: #404070; color: #ffffff; width: 10vw; height: 30px; font-size: 0.7cqi;">Add to Play</button>
+								<button id="watchForm" name="watchForm" style="font-family: 'Press Start 2P'; background-color: #404070; color: #ffffff; width: 10vw; height: 30px; font-size: 0.7cqi;">Add to Watch</button>
 							</div>
 							<div>
 								<iframe id="gameFormActual" title="gameFormActual" src="https://docs.google.com/forms/d/e/1FAIpQLSfgvLV3mwn-PrEnywQGchkjHeFr7A1DUWu7Xj_To4tjpZzXWA/viewform?embedded=true" width="640" height="782" style="border: none;" margin-height="0" margin-width="0">Loading…</iframe>
