@@ -184,10 +184,12 @@
 			const used = getCookie("discordPopup") || "false";
 			
 			console.log(used);
-			
+			/*
 			if (used == "false") {
 				popup.style.display = "flex";
 			}
+			*/
+			popup.remove();
 			
 			closeButton.addEventListener("click", function() {
 				popup.remove();
