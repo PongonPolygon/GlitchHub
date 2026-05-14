@@ -150,21 +150,19 @@
 		<div id="popupMain" style="position: fixed; width: 100vw; height: 100vh; display: none; justify-content: center; align-items: center; display: none; z-index: 5001;">
 			<div style="width: 75vw; height: 35vw; background-color: rgba(64, 64, 112, 1); border-radius: 50px; z-index: 60; background-image: url(background.png); text-align: center; border: 2px solid white; padding: 30px; box-sizing: border-box; overflow: auto;">
 				<div style="font-size: 1.6cqi; position: relative; display: inline-block;">
-					<p style="-webkit-text-stroke: 0.6cqi black;"><strong>We now have a Discord Server!</strong></p>
-					<p style="position: absolute; top: 0; left: 0;"><strong>We now have a <span style="color: #66c0ff">Discord Server!</span></strong></p>
+					<p style="-webkit-text-stroke: 0.6cqi black;"><strong>GlitchHub is coming to a close.</strong></p>
+					<p style="position: absolute; top: 0; left: 0;"><strong>GlitchHub is coming to a close.</strong></p>
 				</div>
 				<br>
 				<p style="line-height: 1.5; margin-top: -10px; font-size: 1.1cqi;">
-					Now that Glitch<span style="color: #00ff9c">Hub</span> has been
-					gaining some popularity,  I decided that there is no better way to get
-					everyone together than a <span style="color: #66c0ff;"><strong>Discord Server</strong></span>!
+					After a couple months (I think it was about 8), I started to lose my motivation to work on GlitchHub. I'm so sorry to all that were using it. The site will still always be online, at this webpage, but I'm now working on a  new website, similar to <a href="https://neal.fun">neal.fun</a>. Thank all of you guys who helped me with the site, and  I wish you a goodbye. The Discord server will still be online (below), but it will be rebranded to pongon.org, which will be finished soon.
 				</p>
 				
 				<iframe title="discord" src="https://discord.com/widget?id=1480007993700647088&theme=dark" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" style="width: 70%; height: 50%; border: none;"></iframe>
 				<br>
 				
 				<!-- close button -->
-				<button name="popupClose" id="popupClose" style="width: 20%; height: 10%; font-family: 'Press Start 2P'; background-color: #404070; color: #ffffff; margin-top: 20px; font-size: 1cqi;">Close</button>
+				<button name="popupClose" id="popupClose" style="cursor: pointer; width: 20%; height: 10%; font-family: 'Press Start 2P'; background-color: #404070; color: #ffffff; margin-top: 20px; font-size: 1cqi;">Close</button>
 			</div>
 		</div>
 		<!-- popup code -->
@@ -184,12 +182,7 @@
 			const used = getCookie("discordPopup") || "false";
 			
 			console.log(used);
-			/*
-			if (used == "false") {
-				popup.style.display = "flex";
-			}
-			*/
-			popup.remove();
+			popup.style.display = "flex";
 			
 			closeButton.addEventListener("click", function() {
 				popup.remove();
@@ -258,7 +251,7 @@
 								<button id="watchForm" name="watchForm" style="font-family: 'Press Start 2P'; background-color: #404070; color: #ffffff; width: 10vw; height: 30px; font-size: 0.7cqi;">Add to Watch</button>
 							</div>
                             
-                            <p>Currently, Glitch<span style="color: #00ff9c;">Hub</span> is being worked on, so recommending stuff will not be available. Join the <a href="https://discord.gg/eqmpS8MMbJ">Discord Server</a> to add your recommendations early, and view updates on the future of Glitch<span style="color: #00ff9c;">Hub</span>. <br> - Poly</p>
+                            <p style="padding: 1rem 0rem 1rem 0;">Currently, Glitch<span style="color: #00ff9c;">Hub</span> is comming to a close, with no further updates ahead. Because of this, recommendations will not be accepted. Join the discord server at the bottom of the page if you need more information. <br> - Poly</p>
 						</div>
 					</div>
 					
@@ -266,7 +259,7 @@
 						<div class="clean-line"></div>
 						<!-- pages -->
 						<span>
-							<a href="https://discord.gg/eqmpS8MMbJ">Discord Server</a>
+							<a href="https://discord.gg/eqmpS8MMbJ">New Discord Server</a>
 							<a href="https://github.com/PongonPolygon/glitchhub">Source Code</a>
 							<!-- https://discord.gg/eqmpS8MMbJ -->
 						</span>
